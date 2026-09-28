@@ -1,0 +1,20 @@
+export const initialProducts = [
+  { id: 1, name: "Apple iPhone 14 Pro Max 128GB Deep Purple", category: "Phones", price: 900, image: "/itemsPhotos/iphone 14 pro 1.png", isNewArrival: true },
+  { id: 2, name: "Blackmagic Pocket Cinema Camera 6k", category: "Electronics", price: 2535, image: "/itemsPhotos/hero__gnfk5g59t0qe_xlarge_2x 1.png", isNewArrival: true },
+  { id: 3, name: "Apple Watch Series 9 GPS 41mm Starlight", category: "Accessories", price: 399, image: "/itemsPhotos/75e9511b54189b8ee3104a701ea71c524e6521e4.png", isNewArrival: true },
+  { id: 4, name: "AirPods Max Silver Starlight Aluminium", category: "Audio", price: 549, image: "/itemsPhotos/34cebf757f8dea2a7d3639bb78713105f1431309.png", isNewArrival: true },
+  { id: 5, name: "Samsung Galaxy Watch6 Classic 47mm Black", category: "Accessories", price: 369, image: "/itemsPhotos/942b063efe4f8cf2ecc828f4183bd3b7d2d0cac5.png", isNewArrival: true },
+  { id: 6, name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black", category: "Phones", price: 1799, image: "/itemsPhotos/0123832569250cc2de152232d881e44b747d3e55.png", isNewArrival: true },
+  { id: 7, name: "Galaxy Buds FE Graphite", category: "Audio", price: 99.99, image: "/itemsPhotos/2b12e06b5f2b9bbd5cdc31ba14fe87f3c707b098.png", isNewArrival: true },
+  { id: 8, name: "Apple iPad 9 10.2\" 64GB Wi-Fi Silver (MK2L3) 2021", category: "Tablets", price: 398, image: "/itemsPhotos/6cfe0b09d911ef7d870d16c2ee487ae54daf98a.png", isNewArrival: true },
+  { id: 9, name: "Apple iPad Pro 12.9-inch Liquid Retina XDR", category: "Tablets", price: 1099, image: "/itemsPhotos/91a91f9fa51ffe2dcd3c8c730f33e506dd49f245.png", isNewArrival: true },
+  { id: 10, name: "Samsung Galaxy Z Fold4 Phantom Black", category: "Phones", price: 1599, image: "/itemsPhotos/iphone 14 pro 1 (1).png", isNewArrival: true },
+  { id: 11, name: "Apple MacBook Pro 16 M3 Max Space Black", category: "Laptops", price: 2499, image: "/itemsPhotos/iphone 14 pro 1 (2).png", isNewArrival: true },
+  { id: 12, name: "Apple iPhone 14 Pro 512GB Gold (MQ233)", category: "Phones", price: 1437, image: "/itemsPhotos/iphone 14 pro 1 (3).png", isNewArrival: false },
+  { id: 13, name: "Apple iPhone 11 128GB White (MQ233)", category: "Phones", price: 510, image: "/itemsPhotos/iphone 14 pro 1 (4).png", isNewArrival: false },
+  { id: 14, name: "Apple iPhone 14 Pro 1TB Gold (MQ2V3)", category: "Phones", price: 1499, image: "/itemsPhotos/iphone 14 pro 1 (5).png", isNewArrival: false },
+  { id: 15, name: "Apple iPhone 14 Pro 128GB Deep Purple (MQ0G3)", category: "Phones", price: 1600, image: "/itemsPhotos/iphone 14 pro 1 (6).png", isNewArrival: false },
+  { id: 16, name: "Apple iPhone 13 mini 128GB Pink (MLK23)", category: "Phones", price: 850, image: "/itemsPhotos/iphone 14 pro 1 (7).png", isNewArrival: false },
+  { id: 17, name: "Apple iPhone 14 Pro 256GB Space Black (MQ0T3)", category: "Phones", price: 1399, image: "/itemsPhotos/iphone 14 pro 1 (8).png", isNewArrival: false },
+  { id: 18, name: "Apple iPhone 14 Pro 256GB Silver (MQ103)", category: "Phones", price: 1399, image: "/itemsPhotos/iphone 14 pro 1 (9).png", isNewArrival: false }
+];
