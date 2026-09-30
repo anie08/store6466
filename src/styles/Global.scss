@@ -33,11 +33,10 @@ body {
 
 .container {
   width: 100%;
-  max-width: 38.4rem;
-  padding-top: 12.5rem;
-  padding-bottom: 17.5rem;
-
+  max-width: 117rem;
   margin: 0 auto;
+  padding-right: 160px;
+  padding-left: 160px;
 
   @media (max-width: 1200px) {
     padding-right: 2rem;
@@ -48,7 +47,6 @@ body {
     padding-left: 1rem;
   }
 }
-
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }

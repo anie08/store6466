@@ -1,0 +1,53 @@
+.heroAndProducts_left-side{
+  padding: 188px 0 316px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.heroAndProducts{
+  background: #211C24;
+  max-width:100% ;
+
+  background: linear-gradient(340deg, rgba(33, 28, 36, 1) 0%, rgba(33, 28, 36, 1) 100%);
+
+}
+.heroAndProducts_context{
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+}
+.heroAndProducts_eft-side_p{
+  font-weight: bold;
+color: #FFFFFF;
+  opacity: 40%;
+  font-size: 25px;
+}
+h1 {
+  font-size: 96px;
+  color: #fff;
+  font-weight: 100;
+display: inline-block;
+  &::after {
+    content: "Pro";
+    font-weight: bold;
+    font-size: 96px;
+
+  }
+}
+.heroAndProducts_left-side_p2{
+  color: #909090;
+  font-size:18px ;
+}
+.heroAndProducts_eft-side_button{
+  border:1px solid white ;
+  padding:16px 56px 16px 56px;
+    text-decoration: none;
+    color: #a0a0a0;
+  width: 200px;
+}
+.heroAndProducts_right-side {
+  display: inline-flex;
+  img{
+    align-items: flex-end;
+  }
+}
