@@ -1,10 +1,10 @@
 import React from 'react';
-import "./heroAndProductsFirst.scss"
+import "./HeroAndProductsFirst.scss"
 import iphone14pro from "../../../public/itemsPhotos/Iphone Image (1).png"
 const HeroAndProductsFirst = () => {
   return (
-    <div className="heroAndProducts ">
-      <div className="heroAndProducts_context container">
+    <div className="heroAndProducts  ">
+      <div className="heroAndProducts_context container ">
         <div className="heroAndProducts_left-side">
           <p className="heroAndProducts_eft-side_p">Pro.Beyond.</p>
           <h1>IPhone 14 </h1>
