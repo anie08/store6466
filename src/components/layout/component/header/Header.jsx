@@ -1,13 +1,14 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from "react-router-dom";
 import { CiHeart, CiShoppingCart, CiUser, CiSearch } from "react-icons/ci";
-import './Header.scss';
+import "./Header.scss";
 
 export default function Header() {
   return (
     <header className="header container">
       <div className="logo">
-        <Link to="/" ><img src="/itemsPhotos/Logo%20(1).png"/></Link>
+        <Link to="/">
+          <img src="/itemsPhotos/Logo%20(1).png" />
+        </Link>
       </div>
 
       <div className="search-bar">
@@ -16,10 +17,30 @@ export default function Header() {
       </div>
 
       <nav className="nav-links">
-        <NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}>Home</NavLink>
-        <NavLink to="/about" className={({ isActive }) => isActive ? "active-link" : ""}>About</NavLink>
-        <NavLink to="/contact" className={({ isActive }) => isActive ? "active-link" : ""}>Contact Us</NavLink>
-        <NavLink to="/blog" className={({ isActive }) => isActive ? "active-link" : ""}>Blog</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Contact Us
+        </NavLink>
+        <NavLink
+          to="/blog"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Blog
+        </NavLink>
       </nav>
 
       <div className="nav-icons">
