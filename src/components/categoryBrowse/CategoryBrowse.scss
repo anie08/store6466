@@ -21,7 +21,6 @@ padding-bottom: 80px;
   margin-top: 32px;
   width: 100%;
   display: flex;
-  gap: 32px;
 
 }
 .category-browse_item {
@@ -33,7 +32,7 @@ padding-bottom: 80px;
   border: 1px solid #ededed;
 
   //width: calc((100% - 5) * 32px);
-  width: calc((100% - (5 * 32px)) / 6);
+  width: 100%;
   height: 128px;
   justify-content: flex-end;
   background-color: #EDEDED;

@@ -1,4 +1,3 @@
-import React from "react";
 import "./HeroAndProductsFirst.scss";
 import iphone14pro from "../../../public/itemsPhotos/Iphone Image (1).png";
 const HeroAndProductsFirst = () => {
@@ -11,10 +10,11 @@ const HeroAndProductsFirst = () => {
           <p className="heroAndProducts_left-side_p2">
             Created to change everything for the better. For everyone
           </p>
-          <a className="heroAndProducts_eft-side_button" href="#">
-            {" "}
-            Shop Now
-          </a>
+          <button className="heroAndProducts_left-side_button">
+            <a className="heroAndProducts_left-side_button_a" href="#">
+              Shop Now
+            </a>
+          </button>
         </div>
         <div className="heroAndProducts_right-side">
           <img src={iphone14pro} />

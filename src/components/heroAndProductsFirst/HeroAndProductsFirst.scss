@@ -39,16 +39,22 @@ h1 {
   color: #909090;
   font-size: 18px;
 }
-.heroAndProducts_eft-side_button {
+.heroAndProducts_left-side_button {
   border: 1px solid white;
   padding: 16px 56px 16px 56px;
-  text-decoration: none;
+  background: transparent;
   color: #a0a0a0;
   width: 200px;
+
+}
+.heroAndProducts_left-side_button_a{
+  text-decoration: none ;
+  color: white;
 }
 .heroAndProducts_right-side {
   display: inline-flex;
   img {
     align-items: flex-end;
+    width: 100%;
   }
 }

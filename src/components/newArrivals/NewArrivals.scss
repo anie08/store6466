@@ -1,15 +1,133 @@
-.New-arrivals_header{
+$gap: 10px;
 
+.new-arrivals {
+  padding: 40px 0;
 }
-.New-arrivals_header_list{
+
+/* Header / tabs */
+.new-arrivals_header {
+  margin-bottom: 24px;
+}
+
+.new-arrivals_header_list {
   display: flex;
-  gap:32px
-}
-.New-arrivals_header_list_li{
+  gap: 32px;
   list-style: none;
-a{
+  margin: 0;
+  padding: 0;
+}
+
+.new-arrivals_header_list_li {
+  list-style: none;
+}
+
+.new-arrivals_header_link {
+  display: inline-block;
+  padding-bottom: 4px;
   font-weight: 500;
   font-size: 18px;
-  color: #8B8B8B;
+  color: #8b8b8b;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
 }
+
+.new-arrivals_header_list_li--active .new-arrivals_header_link {
+  color: #000;
+  border-bottom-color: #000;
 }
+
+/* Grid */
+.new-arrivals_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}
+
+.new-arrivals_item {
+  display: flex;
+  width: calc((100% - 3 * #{$gap}) / 4);
+}
+
+/* Card */
+.product-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 54px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-card_top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-card_heart {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.product-card_heart_icon {
+  font-size: 24px;
+  color: #000;
+}
+
+.product-card_heart_icon--liked {
+  color: red;
+}
+
+.product-card_img {
+  width: 160px;
+  max-width: 100%;
+  height: 160px;
+  margin: 8px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card_img_el {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Text block: does not stretch, stays centered */
+.product-card_info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.product-card_title {
+  width: 100%;
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  word-break: break-word;
+  min-height: 40px;
+}
+
+.product-card_price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.product-card_btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;}
