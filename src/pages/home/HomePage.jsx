@@ -2,6 +2,7 @@ import HeroAndProductsFirst from "../../components/heroAndProductsFirst/HeroAndP
 import HeroAndProductsSecond from "../../components/heroAndProductsSecond/HeroAndProductsSecond.jsx";
 import CategoryBrowse from "../../components/categoryBrowse/CategoryBrowse.jsx";
 import NewArrivals from "../../components/newArrivals/NewArrivals.jsx";
+import Popular from "../../components/popular/Popular.jsx";
 const HomePage = () => {
   return (
     <div>
@@ -9,6 +10,7 @@ const HomePage = () => {
       <HeroAndProductsSecond />
       <CategoryBrowse />
       <NewArrivals />
+      <Popular />
     </div>
   );
 };
