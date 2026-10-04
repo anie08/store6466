@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import "./HeroAndProductsFirst.scss";
 import iphone14pro from "../../../public/itemsPhotos/Iphone Image (1).png";
+
 const HeroAndProductsFirst = () => {
   return (
     <div className="heroAndProducts  ">
@@ -10,11 +12,12 @@ const HeroAndProductsFirst = () => {
           <p className="heroAndProducts_left-side_p2">
             Created to change everything for the better. For everyone
           </p>
-          <button className="heroAndProducts_left-side_button">
-            <a className="heroAndProducts_left-side_button_a" href="#">
-              Shop Now
-            </a>
-          </button>
+          <Link
+            to="/products"
+            className="heroAndProducts_left-side_button heroAndProducts_left-side_button_a"
+          >
+            Shop Now
+          </Link>
         </div>
         <div className="heroAndProducts_right-side">
           <img src={iphone14pro} />

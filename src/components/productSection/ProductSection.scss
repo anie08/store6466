@@ -1,0 +1,9 @@
+$gap: 10px;
+
+
+
+.new-arrivals_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}

@@ -1,42 +1,5 @@
+
 $gap: 10px;
-
-
-.new-arrivals_header {
-  margin-bottom: 24px;
-}
-
-.new-arrivals_header_list {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.new-arrivals_header_list_li {
-  list-style: none;
-}
-
-.new-arrivals_header_link {
-  display: inline-block;
-  padding-bottom: 4px;
-  font-weight: 500;
-  font-size: 18px;
-  color: #8b8b8b;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-}
-
-.new-arrivals_header_list_li--active .new-arrivals_header_link {
-  color: #000;
-  border-bottom-color: #000;
-}
-
-.new-arrivals_content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $gap;
-}
 
 .new-arrivals_item {
   display: flex;

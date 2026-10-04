@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import pc from "../../../public/itemsPhotos/PlayStation.png";
 import airPods from "../../../public/itemsPhotos/hero__gnfk5g59t0qe_xlarge_2x 1.png";
 import appleVision from "../../../public/itemsPhotos/image 36.png";
@@ -54,7 +55,9 @@ const HeroAndProductsSecond = () => {
                 The new 15-inch MacBook Air makes room for more of what you love
                 with a spacious Liquid Retina display.
               </p>
-              <button className="shop-btn">Shop Now</button>
+              <Link to="/products" className="shop-btn">
+                Shop Now
+              </Link>
             </div>
             <div className="macbook-image-wrapper">
               <img src={macAir} alt="Macbook Air" />
