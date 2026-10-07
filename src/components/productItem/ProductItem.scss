@@ -4,6 +4,10 @@ $gap: 10px;
   display: flex;
   width: calc((100% - 3 * #{$gap}) / 4);
 
+  @media (max-width: 1199px) {
+    width: calc((100% - 2 * #{$gap}) / 3);
+  }
+
   @media (max-width: 767px) {
     width: calc(50% - 7px);
   }

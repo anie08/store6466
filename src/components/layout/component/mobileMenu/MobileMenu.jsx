@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import { NAVIGATION } from "../../../../constants.js";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
+
+import { NAVIGATION } from "../../../../constants.js";
+import "./MobileMenu.scss";
 
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
 
@@ -10,6 +12,7 @@ const MobileMenu = ({ closeMenu }) => {
       <button className="mobile-menu__close" onClick={closeMenu}>
         <span className="mobile-menu__close-icon">X</span>
       </button>
+
       <ul className="mobile-menu__list">
         {NAVIGATION.map((item) => (
           <li className="page-link" key={item.to}>
@@ -24,14 +27,28 @@ const MobileMenu = ({ closeMenu }) => {
         ))}
 
         <div className="mobile-menu__links">
-          <Link to="/wishlist" className="icon-btn">
-            <CiHeart size={24} />
+          <Link
+            to="/wishlist"
+            className="mobile-menu__icon-btn"
+            onClick={closeMenu}
+          >
+            <CiHeart size={28} />
           </Link>
-          <Link to="/cart" className="icon-btn">
-            <CiShoppingCart size={24} />
+
+          <Link
+            to="/cart"
+            className="mobile-menu__icon-btn"
+            onClick={closeMenu}
+          >
+            <CiShoppingCart size={28} />
           </Link>
-          <Link to="/profile" className="icon-btn">
-            <CiUser size={24} />
+
+          <Link
+            to="/profile"
+            className="mobile-menu__icon-btn"
+            onClick={closeMenu}
+          >
+            <CiUser size={28} />
           </Link>
         </div>
       </ul>

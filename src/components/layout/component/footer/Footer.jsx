@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaTwitter, FaFacebookF, FaTiktok, FaInstagram } from "react-icons/fa6";
-import logo from "../../../../../public/itemsPhotos/Logo (1).png";
+import logo from "../../../../../public/itemsPhotos/Logo (3).png";
 import "./Footer.scss";
 
 const services = [
