@@ -1,6 +1,10 @@
 .footer {
   background: #000;
   color: #fff;
+
+  @media (max-width: 767px) {
+    background: #181313;
+  }
 }
 
 .footer_inner {
@@ -9,6 +13,15 @@
   padding-top: 80px;
   padding-bottom: 80px;
   box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 32px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .footer_about {
@@ -18,18 +31,32 @@
   justify-content: space-between;
   padding-right: 40px;
   box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding-right: 0;
+    align-items: center;
+  }
 }
 
 .footer_logo-link {
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
 }
 
 .footer_logo {
   display: block;
   height: 32px;
   margin-bottom: 24px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
 }
 
 .footer_text {
@@ -38,11 +65,26 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.9;
+
+  @media (max-width: 767px) {
+    max-width: 340px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #cfcfcf;
+  }
 }
 
 .footer_socials {
   display: flex;
   gap: 30px;
+
+  @media (max-width: 767px) {
+    order: 4;
+    width: 100%;
+    margin-top: 28px;
+    justify-content: center;
+    gap: 24px;
+  }
 }
 
 .footer_social-link {
@@ -54,6 +96,11 @@
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
+
+  @media (max-width: 767px) {
+    padding: 8px;
+    font-size: 24px;
+  }
 }
 
 .footer_social-link:hover {
@@ -62,16 +109,32 @@
 
 .footer_col-services {
   width: calc(353 / 1170 * 100%);
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 32px;
+  }
 }
 
 .footer_col-assistance {
   width: calc(282 / 1170 * 100%);
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 36px;
+  }
 }
 
 .footer_title {
   margin: 0 0 16px;
   font-size: 18px;
   font-weight: 500;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
 }
 
 .footer_list {
@@ -81,6 +144,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 767px) {
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 .footer_item {
@@ -95,6 +163,12 @@
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
 
 .footer_link:hover {

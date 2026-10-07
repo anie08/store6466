@@ -1,9 +1,12 @@
-
 $gap: 10px;
 
 .new-arrivals_item {
   display: flex;
   width: calc((100% - 3 * #{$gap}) / 4);
+
+  @media (max-width: 767px) {
+    width: calc(50% - 7px);
+  }
 }
 
 .product-card_top-wrapper {
@@ -12,13 +15,20 @@ $gap: 10px;
   align-items: center;
   width: 100%;
 }
+
 .product-card_bottom-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   flex-grow: 1;
-  width: 100%};
+  width: 100%;
+
+  @media (max-width: 767px) {
+    justify-content: space-between;
+  }
+}
+
 .product-card {
   width: 100%;
   box-sizing: border-box;
@@ -31,6 +41,12 @@ $gap: 10px;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media (max-width: 767px) {
+    min-height: 303px;
+    padding: 8px 10px 16px;
+    gap: 4px;
+  }
 }
 
 .product-card_top {
@@ -45,11 +61,20 @@ $gap: 10px;
   padding: 20px;
   cursor: pointer;
   line-height: 0;
+
+  @media (max-width: 767px) {
+    padding: 8px 2px 2px;
+  }
 }
 
 .product-card_heart_icon {
   font-size: 24px;
   color: #000;
+
+  @media (max-width: 767px) {
+    font-size: 22px;
+    color: #aaa;
+  }
 }
 
 .product-card_heart_icon--liked {
@@ -63,8 +88,14 @@ $gap: 10px;
   width: 90%;
   max-width: 160px;
   aspect-ratio: 1;
-}
 
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: 120px;
+    height: 105px;
+    aspect-ratio: auto;
+  }
+}
 
 .product-card_content {
   padding: 20px;
@@ -74,13 +105,18 @@ $gap: 10px;
   flex-grow: 1;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 767px) {
+    padding: 8px 0;
+    flex-grow: 0;
+    justify-content: flex-start;
+  }
 }
 
 .product-card_img_el {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
 }
 
 .product-card_info {
@@ -99,6 +135,17 @@ $gap: 10px;
   line-height: 1.4;
   text-align: center;
   word-break: break-word;
+
+  @media (max-width: 767px) {
+    height: 40px;
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 }
 
 .product-card_price {
@@ -106,6 +153,11 @@ $gap: 10px;
   font-size: 24px;
   font-weight: 600;
   text-align: center;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .product-card_btn {
@@ -117,5 +169,12 @@ $gap: 10px;
   cursor: pointer;
   background-color: black;
   color: white;
-}
 
+  @media (max-width: 767px) {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 5px;
+    font-size: 12px;
+    text-decoration: none;
+  }
+}

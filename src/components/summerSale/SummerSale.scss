@@ -10,6 +10,11 @@
   text-align: center;
 
   min-height: 400px;
+
+  @media (max-width: 767px) {
+
+    background-size: cover;
+  }
 }
 
 .summer-summer__info {
@@ -19,12 +24,21 @@
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0 20px;
+    gap: 48px;
+  }
 }
 
 .summer-summer__content {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .big-summer {
@@ -32,6 +46,11 @@
   font-weight: 100;
   color: #a0a0a0;
 
+  @media (max-width: 767px) {
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0;
+  }
 }
 
 .big-summer_span {
@@ -39,6 +58,14 @@
   font-size: 72px;
   line-height: 72px;
   color: white;
+
+  @media (max-width: 767px) {
+    display: block;
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
 }
 
 .summer-summer__info__title_p {
@@ -46,4 +73,24 @@
   line-height: 32px;
   font-weight: 400;
   color: #787878;
+
+  @media (max-width: 767px) {
+    max-width: 330px;
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .summer-summer .shop-btn {
+    width: 204px;
+    padding: 16px 24px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 6px;
+  }
 }
