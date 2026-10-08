@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./SummerSale.scss";
+
 const SummerSale = () => {
   return (
     <div className="summer-summer">

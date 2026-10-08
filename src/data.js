@@ -17,6 +17,14 @@ export const initialProducts = [
     storageOptions: ["128GB", "256GB", "512GB", "1TB"],
     description:
       "Experience the magic of Dynamic Island, Always-On display, and a 48MP main camera for breathtaking detail.",
+    brand: "Apple",
+    batteryCapacity: 4323,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.7,
+    protectionClass: "IP68",
+    builtInMemory: "128GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -34,6 +42,14 @@ export const initialProducts = [
     storageOptions: ["CFast 2.0", "SD Card", "USB-C SSD"],
     description:
       "Features a massive 6K Super 35 sensor, EF lens mount, and dual native ISO up to 25,600 for cinematic digital film.",
+    brand: "Blackmagic Design",
+    batteryCapacity: null,
+    screenType: "LCD",
+    screenDiagonal: 5.0,
+    protectionClass: null,
+    builtInMemory: null,
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -52,6 +68,14 @@ export const initialProducts = [
     storageOptions: ["64GB"],
     description:
       "Smarter, brighter, and faster. Featuring a magical new double tap gesture and a much brighter edge-to-edge display.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Retina OLED",
+    screenDiagonal: 1.69,
+    protectionClass: "IP6X",
+    builtInMemory: "64GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -70,6 +94,14 @@ export const initialProducts = [
     storageOptions: ["Standard"],
     description:
       "A perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate over-ear headphone.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: null,
+    screenDiagonal: null,
+    protectionClass: null,
+    builtInMemory: null,
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -87,6 +119,14 @@ export const initialProducts = [
     storageOptions: ["16GB"],
     description:
       "Timeless look with a physical rotating bezel. Advanced sleep coaching, fitness tracking, and heart monitoring right on your wrist.",
+    brand: "Samsung",
+    batteryCapacity: 425,
+    screenType: "Super AMOLED",
+    screenDiagonal: 1.5,
+    protectionClass: "IP68",
+    builtInMemory: "16GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -104,6 +144,14 @@ export const initialProducts = [
     storageOptions: ["256GB", "512GB", "1TB"],
     description:
       "Your pocket-sized movie theater, gaming console, and multi-tasking workstation all in one stunning foldable device.",
+    brand: "Samsung",
+    batteryCapacity: 4400,
+    screenType: "Dynamic AMOLED 2X",
+    screenDiagonal: 7.6,
+    protectionClass: "IPX8",
+    builtInMemory: "256GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -121,6 +169,14 @@ export const initialProducts = [
     storageOptions: ["Standard"],
     description:
       "Compact, ergonomic design with powerful Active Noise Cancellation (ANC) to help you tune out the world and tune into your music.",
+    brand: "Samsung",
+    batteryCapacity: null,
+    screenType: null,
+    screenDiagonal: null,
+    protectionClass: "IPX2",
+    builtInMemory: null,
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -138,6 +194,14 @@ export const initialProducts = [
     storageOptions: ["64GB", "256GB"],
     description:
       "Powerful, easy to use, and versatile. Designed for all the things you do everyday with a gorgeous Retina display.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Retina IPS LCD",
+    screenDiagonal: 10.2,
+    protectionClass: null,
+    builtInMemory: "64GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -156,6 +220,14 @@ export const initialProducts = [
     storageOptions: ["128GB", "256GB", "512GB", "1TB", "2TB"],
     description:
       "Ultimate iPad experience with groundbreaking M2 performance, a breathtaking XDR display, and blazing-fast wireless connectivity.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Liquid Retina XDR",
+    screenDiagonal: 12.9,
+    protectionClass: null,
+    builtInMemory: "128GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -174,6 +246,14 @@ export const initialProducts = [
     storageOptions: ["256GB", "512GB"],
     description:
       "Durable foldable phone that stands up, writes down, and opens up to a tablet-sized screen for ultimate productivity.",
+    brand: "Samsung",
+    batteryCapacity: 4400,
+    screenType: "Dynamic AMOLED 2X",
+    screenDiagonal: 7.6,
+    protectionClass: "IPX8",
+    builtInMemory: "256GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -192,6 +272,14 @@ export const initialProducts = [
     storageOptions: ["1TB", "2TB", "4TB", "8TB"],
     description:
       "A beast of a laptop built for extreme workflows, featuring the M3 Max chip, stunning battery life, and a gorgeous Space Black finish.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Liquid Retina XDR",
+    screenDiagonal: 16.2,
+    protectionClass: null,
+    builtInMemory: "1TB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -210,6 +298,14 @@ export const initialProducts = [
     storageOptions: ["512GB"],
     description:
       "Luxurious Gold edition with 512GB storage, always-on display, and professional-grade mobile photography features.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "512GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -227,6 +323,14 @@ export const initialProducts = [
     storageOptions: ["64GB", "128GB", "256GB"],
     description:
       "Classic white design with a reliable dual-camera system, all-day battery life, and tough glass construction.",
+    brand: "Apple",
+    batteryCapacity: 3110,
+    screenType: "Liquid Retina IPS LCD",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "128GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -245,6 +349,14 @@ export const initialProducts = [
     storageOptions: ["1TB"],
     description:
       "Massive 1TB storage capacity combined with Apple's top-tier A16 Bionic performance and a gorgeous Gold finish.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "1TB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -262,6 +374,14 @@ export const initialProducts = [
     storageOptions: ["128GB"],
     description:
       "Deep Purple flagship device featuring ProMotion technology, Crash Detection, and an advanced 48MP camera system.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "128GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -279,6 +399,14 @@ export const initialProducts = [
     storageOptions: ["128GB", "256GB", "512GB"],
     description:
       "Pocket-friendly size packed with big performance, stunning pink finish, and cinematic video recording modes.",
+    brand: "Apple",
+    batteryCapacity: 2438,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 5.4,
+    protectionClass: "IP68",
+    builtInMemory: "128GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -296,6 +424,14 @@ export const initialProducts = [
     storageOptions: ["256GB"],
     description:
       "Sleek Space Black color with 256GB storage, smooth 120Hz display refresh rate, and professional features.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "256GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -313,6 +449,14 @@ export const initialProducts = [
     storageOptions: ["256GB"],
     description:
       "Elegant Silver edition with 256GB of storage, robust ceramic shield front, and incredible battery efficiency.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "256GB",
+    rating: null,
+    reviewCount: 0,
   },
   {
     id: nanoid(),
@@ -331,5 +475,13 @@ export const initialProducts = [
     storageOptions: ["256GB"],
     description:
       "Elegant Silver edition with 256GB of storage, robust ceramic shield front, and incredible battery efficiency.",
+    brand: "Apple",
+    batteryCapacity: null,
+    screenType: "Super Retina XDR OLED",
+    screenDiagonal: 6.1,
+    protectionClass: "IP68",
+    builtInMemory: "256GB",
+    rating: null,
+    reviewCount: 0,
   },
 ];
