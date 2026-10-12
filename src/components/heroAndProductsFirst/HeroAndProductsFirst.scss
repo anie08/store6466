@@ -114,11 +114,18 @@ h1 {
 
 .heroAndProducts_left-side_button {
   border: 1px solid white;
-  padding: 16px 56px;
-  background: transparent;
   color: #a0a0a0;
   width: 200px;
-  border-radius: 6px;
+  min-width: 200px;
+  padding: 14px 0px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  display: inline-flex;
+  text-decoration: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
 
   @media (max-width: 1199px) {
     width: 190px;

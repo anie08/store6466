@@ -2,8 +2,29 @@ import { Link } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { memo, useState } from "react";
 import "./ProductItem.scss";
-const ProductItem = ({ elm }) => {
-  const [isLiked, setIsLiked] = useState(false);
+
+const ProductItem = ({ elm, onWishlistChange }) => {
+  const savedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  const [isLiked, setIsLiked] = useState(
+    savedWishlist.some((item) => item.id === elm.id),
+  );
+
+  console.log(savedWishlist, elm.id, "savedWishlist");
+
+  const handleLike = () => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+    const exists = wishlist.some((item) => item.id === elm.id);
+
+    const updatedWishlist = exists
+      ? wishlist.filter((item) => item.id !== elm.id)
+      : [...wishlist, elm];
+
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+
+    setIsLiked(!exists);
+    onWishlistChange?.();
+  };
 
   return (
     <div className="new-arrivals_item">
@@ -11,8 +32,9 @@ const ProductItem = ({ elm }) => {
         <div className="product-card_top-wrapper">
           <div className="product-card_top">
             <button
+              type="button"
               className="product-card_heart"
-              onClick={() => setIsLiked((prevState) => !prevState)}
+              onClick={handleLike}
             >
               {isLiked ? (
                 <FaHeart className="product-card_heart_icon product-card_heart_icon--liked" />
@@ -35,7 +57,8 @@ const ProductItem = ({ elm }) => {
             <h3 className="product-card_title">{elm.name}</h3>
             <p className="product-card_price">${elm.price}</p>
           </div>
-          <Link to={`/product/${elm.id}`} className="product-card_btn">
+
+          <Link to={`/products/${elm.id}`} className="product-card_btn">
             Buy Now
           </Link>
         </div>

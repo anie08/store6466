@@ -3,7 +3,8 @@ import Layout from "./components/layout/Layout.jsx";
 import HomePage from "./pages/home/HomePage.jsx";
 import Products from "./pages/products/Products.jsx";
 import SummerSale from "./components/summerSale/SummerSale.jsx";
-
+import Wishlist from "./pages/wishListContext/WishListContext.jsx";
+import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -12,6 +13,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/iphone" element={<SummerSale />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

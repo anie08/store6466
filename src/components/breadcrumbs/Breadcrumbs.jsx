@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-
+import "./Breadcrumbs.scss";
 const Breadcrumbs = () => {
   const { pathname } = useLocation();
 
@@ -8,25 +8,21 @@ const Breadcrumbs = () => {
   const paths = pathname
     .split("/")
     .filter(Boolean)
-    .map((item) => ({
+    .map((item, index, arr) => ({
       name: item,
-      path: item,
+      path: arr.slice(0, index + 1).join("/"),
     }));
-
   const pathsToPaint = [{ name: "home", path: "" }, ...paths];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        color: "black",
-      }}
-    >
-      {pathsToPaint.map((item) => (
-        <div>
-          <Link to={"/" + item.path}>{item.name}/</Link>
-        </div>
-      ))}
+    <div className="breadcrumbs-container container">
+      <div className="breadcrumbs">
+        {pathsToPaint.map((item) => (
+          <div className="breadcrumbs-item" key={item.path || "home"}>
+            <Link to={"/" + item.path}>{item.name}</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

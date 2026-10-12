@@ -1,8 +1,6 @@
-import { nanoid } from "nanoid";
-
 export const initialProducts = [
   {
-    id: nanoid(),
+    id: 1,
     name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
     category: "Phones",
     price: 900,
@@ -27,7 +25,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 2,
     name: "Blackmagic Pocket Cinema Camera 6k",
     category: "Electronics",
     price: 2535,
@@ -52,7 +50,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 3,
     name: "Apple Watch Series 9 GPS 41mm Starlight",
     category: "Accessories",
     price: 399,
@@ -78,7 +76,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 4,
     name: "AirPods Max Silver Starlight Aluminium",
     category: "Audio",
     price: 549,
@@ -104,7 +102,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 5,
     name: "Samsung Galaxy Watch6 Classic 47mm Black",
     category: "Accessories",
     price: 369,
@@ -129,7 +127,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 6,
     name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
     category: "Phones",
     price: 1799,
@@ -154,7 +152,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 7,
     name: "Galaxy Buds FE Graphite",
     category: "Audio",
     price: 99.99,
@@ -179,7 +177,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 8,
     name: 'Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021',
     category: "Tablets",
     price: 398,
@@ -204,7 +202,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 9,
     name: "Apple iPad Pro 12.9-inch Liquid Retina XDR",
     category: "Tablets",
     price: 1099,
@@ -230,7 +228,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 10,
     name: "Samsung Galaxy Z Fold4 Phantom Black",
     category: "Phones",
     price: 1599,
@@ -256,7 +254,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 11,
     name: "Apple MacBook Pro 16 M3 Max Space Black",
     category: "Laptops",
     price: 2499,
@@ -282,7 +280,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 12,
     name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
     category: "Phones",
     price: 1437,
@@ -308,7 +306,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 13,
     name: "Apple iPhone 11 128GB White (MQ233)",
     category: "Phones",
     price: 510,
@@ -333,7 +331,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 14,
     name: "Apple iPhone 14 Pro 1TB Gold (MQ2V3)",
     category: "Phones",
     price: 1499,
@@ -359,7 +357,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 15,
     name: "Apple iPhone 14 Pro 128GB Deep Purple (MQ0G3)",
     category: "Phones",
     price: 1600,
@@ -384,7 +382,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 16,
     name: "Apple iPhone 13 mini 128GB Pink (MLK23)",
     category: "Phones",
     price: 850,
@@ -409,7 +407,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 17,
     name: "Apple iPhone 14 Pro 256GB Space Black (MQ0T3)",
     category: "Phones",
     price: 1399,
@@ -434,7 +432,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 18,
     name: "Apple iPhone 14 Pro 256GB Silver (MQ10)",
     category: "Phones",
     price: 1399,
@@ -459,7 +457,7 @@ export const initialProducts = [
     reviewCount: 0,
   },
   {
-    id: nanoid(),
+    id: 19,
     name: "Popular Products",
     category: "Phones",
     price: 1399,
