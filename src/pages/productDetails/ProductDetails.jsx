@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { initialProducts } from "../../data.js";
 import { handleLike } from "../../components/handleLike/handleLike.jsx";
-
+import RatingSystem from "../../components/ratingSystem/RatingSystem.jsx";
+import SuggestedItems from "../../components/suggestedItems/SuggestedItems.jsx";
+import { useCart } from "../../components/cartContext/CartContext.jsx";
 import {
   FaMobileAlt,
   FaMicrochip,
@@ -59,6 +61,14 @@ const ProductDetails = () => {
     product.builtInMemory || "",
   );
   const [showMore, setShowMore] = useState(false);
+  const { addToCart } = useCart();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
 
   if (!product) {
     return <div className="container">Product not found</div>;
@@ -188,7 +198,6 @@ const ProductDetails = () => {
             {specifications.map((item) => (
               <div className="product-details_spec" key={item.label}>
                 <span className="spec-icon">{item.icon}</span>
-
                 <div>
                   <small>{item.label}</small>
                   <p>{item.value}</p>
@@ -209,7 +218,19 @@ const ProductDetails = () => {
               Add to Wishlist
             </button>
 
-            <button type="button" className="cart-btn">
+            <button
+              type="button"
+              className="cart-btn"
+              onClick={() =>
+                addToCart(
+                  product,
+                  selectedColor,
+                  selectedStorage,
+                  images[activeImage],
+                  1,
+                )
+              }
+            >
               Add to Cart
             </button>
           </div>
@@ -247,7 +268,6 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-
       <div className="product-details-bottom">
         <div className="container">
           <div className="product-details-card">
@@ -336,6 +356,8 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <RatingSystem />
+      <SuggestedItems title="Related Products" filterKey="isDiscounted" />
     </div>
   );
 };

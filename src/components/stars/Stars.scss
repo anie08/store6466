@@ -1,0 +1,31 @@
+.stars-container {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.star {
+  display: inline-flex;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  flex-direction: row;
+
+}
+
+.star_gray-star, {
+
+
+}
+
+.star_yellow-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  object-fit: cover;
+  object-position: left;
+
+}
