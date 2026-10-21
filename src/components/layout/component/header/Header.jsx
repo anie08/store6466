@@ -6,6 +6,7 @@ import { useState } from "react";
 import MobileMenu from "../mobileMenu/MobileMenu.jsx";
 import { NAVIGATION } from "../../../../constants.js";
 import "./Header.scss";
+import classNames from "classnames";
 
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
 
@@ -31,7 +32,11 @@ export default function Header() {
 
         <div className="search-bar">
           <CiSearch className="search-icon" size={20} />
-          <input type="text" placeholder="Search" />
+          <input
+            className="search-icon_input"
+            type="text"
+            placeholder="Search"
+          />
         </div>
 
         <nav className="nav-links">
@@ -39,7 +44,7 @@ export default function Header() {
             <NavLink
               key={item.to}
               to={item.to}
-              className={getActiveClass}
+              className={classNames("nav-links_a", getActiveClass)}
               onClick={closeMenu}
             >
               {item.name}

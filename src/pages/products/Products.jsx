@@ -112,10 +112,14 @@ const Products = () => {
           }`}
         >
           <div className="mobile-filter-header">
-            <button type="button" onClick={() => setMobileFiltersOpen(false)}>
+            <button
+              className="mobile-filter-header_button"
+              type="button"
+              onClick={() => setMobileFiltersOpen(false)}
+            >
               <FaChevronLeft />
             </button>
-            <h2>Filters</h2>
+            <h2 className="mobile-filter-header_h2">Filters</h2>
           </div>
 
           <div className="filter-box price-filter">
@@ -125,7 +129,7 @@ const Products = () => {
               className="filter-title"
               onClick={() => toggleFilter("price")}
             >
-              <span>Price</span>
+              <span className="filter-box_price">Price</span>
               {openFilter.includes("price") ? (
                 <FaChevronUp />
               ) : (

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Breadcrumbs.scss";
+
 const Breadcrumbs = () => {
   const { pathname } = useLocation();
 
@@ -19,7 +20,9 @@ const Breadcrumbs = () => {
       <div className="breadcrumbs">
         {pathsToPaint.map((item) => (
           <div className="breadcrumbs-item" key={item.path || "home"}>
-            <Link to={"/" + item.path}>{item.name}</Link>
+            <Link className="breadcrumbs-item_a" to={"/" + item.path}>
+              {item.name}
+            </Link>
           </div>
         ))}
       </div>

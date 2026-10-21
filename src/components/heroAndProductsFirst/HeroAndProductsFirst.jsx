@@ -8,7 +8,10 @@ const HeroAndProductsFirst = () => {
       <div className="heroAndProducts_context container ">
         <div className="heroAndProducts_left-side">
           <p className="heroAndProducts_eft-side_p">Pro.Beyond.</p>
-          <h1>IPhone 14 </h1>
+          <h1 className="heroAndProducts_left-side_h1">
+            IPhone 14
+            <span className="heroAndProducts_left-side_span">Pro</span>
+          </h1>
           <p className="heroAndProducts_left-side_p2">
             Created to change everything for the better. For everyone
           </p>

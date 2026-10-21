@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { initialProducts } from "../../data.js";
-import { handleLike } from "../../components/handleLike/handleLike.jsx";
+import { handleLike } from "../../components/handleLike/HandleLike.jsx";
 import RatingSystem from "../../components/ratingSystem/RatingSystem.jsx";
 import SuggestedItems from "../../components/suggestedItems/SuggestedItems.jsx";
 import { useCart } from "../../components/cartContext/CartContext.jsx";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.jsx";
+
 import {
   FaMobileAlt,
   FaMicrochip,
@@ -50,16 +52,15 @@ const ProductDetails = () => {
   const product = initialProducts.find((elm) => elm.id === Number(id));
 
   const [isLiked, setIsLiked] = useState(
-    savedWishlist.some((item) => item.id === product.id),
+    savedWishlist.some((item) => item.id === product?.id),
   );
-
-  const [activeImage, setActiveImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(
-    product.selectedColor || "",
+    product?.selectedColor || "",
   );
   const [selectedStorage, setSelectedStorage] = useState(
-    product.builtInMemory || "",
+    product?.builtInMemory || "",
   );
+  const [activeImage, setActiveImage] = useState(0);
   const [showMore, setShowMore] = useState(false);
   const { addToCart } = useCart();
 
@@ -74,7 +75,7 @@ const ProductDetails = () => {
     return <div className="container">Product not found</div>;
   }
 
-  const images = product.images.length ? product.images : [product.image];
+  const images = product.images?.length ? product.images : [product.image];
 
   const specifications = [
     {
@@ -116,25 +117,28 @@ const ProductDetails = () => {
     ["Pixel density", product.pixelDensity],
     ["Screen type", product.screenType],
     ["Additionally", product.screenFeatures],
-  ].filter((item, index) => item[index] != null && item[index] !== "N/A");
+  ].filter(([, value]) => value != null && value !== "N/A");
 
   const cpuDetails = [
     ["CPU", product.cpu],
     ["Number of cores", product.cores],
     ["Built-in memory", product.builtInMemory],
     ["Protection class", product.protectionClass],
-  ].filter((item, index) => item[index] != null && item[index] !== "N/A");
+  ].filter(([, value]) => value != null && value !== "N/A");
 
   return (
     <div className="product-details-wraper">
+      <Breadcrumbs />
       <div className="product-details container">
         <div className="product-details_image">
           <div className="product-details_side-photos">
             {images.map((image, index) => (
               <button
                 type="button"
-                key={index}
-                className={activeImage === index ? "active" : ""}
+                key={image}
+                className={classNames("product-details_thumb", {
+                  active: activeImage === index,
+                })}
                 onClick={() => setActiveImage(index)}
               >
                 <img src={image} alt={product.name} />
@@ -148,16 +152,20 @@ const ProductDetails = () => {
         </div>
 
         <div className="product-details_info">
-          <h1>{product.name}</h1>
+          <h1 className="product-details_info_h1">{product.name}</h1>
 
           <div className="product-details_prices">
-            <h2>${product.price}</h2>
-            <del>${product.oldPrice}</del>
+            <h2 className="product-details_prices_price">${product.price}</h2>
+            <del className="product-details_prices_del">
+              ${product.oldPrice}
+            </del>
           </div>
 
-          {product.colors.length > 0 && (
+          {product.colors?.length > 0 && (
             <div className="product-details_colors">
-              <span>Select color:</span>
+              <span className="product-details_colors_color-header">
+                Select color:
+              </span>
 
               <div className="product-details_color-options">
                 {product.colors.map((color) => (
@@ -185,7 +193,9 @@ const ProductDetails = () => {
                 <button
                   type="button"
                   key={storage}
-                  className={selectedStorage === storage ? "active" : ""}
+                  className={classNames("product-details_button", {
+                    active: selectedStorage === storage,
+                  })}
                   onClick={() => setSelectedStorage(storage)}
                 >
                   {storage}
@@ -199,8 +209,10 @@ const ProductDetails = () => {
               <div className="product-details_spec" key={item.label}>
                 <span className="spec-icon">{item.icon}</span>
                 <div>
-                  <small>{item.label}</small>
-                  <p>{item.value}</p>
+                  <small className="product-details_spec_label">
+                    {item.label}
+                  </small>
+                  <p className="product-details_spec_value">{item.value}</p>
                 </div>
               </div>
             ))}
@@ -211,7 +223,7 @@ const ProductDetails = () => {
           <div className="product-details_buttons">
             <button
               type="button"
-              className="wishlist-btn"
+              className="wishlist-btn product-details_buttons_button"
               onClick={() => handleLike(product, setIsLiked)}
             >
               {isLiked && "liked"}
@@ -220,7 +232,7 @@ const ProductDetails = () => {
 
             <button
               type="button"
-              className="cart-btn"
+              className="cart-btn product-details_buttons_button"
               onClick={() =>
                 addToCart(
                   product,
@@ -240,8 +252,8 @@ const ProductDetails = () => {
               <div className="service-item">
                 <FaTruck />
                 <div>
-                  <small>Free Delivery</small>
-                  <p>{product.delivery}</p>
+                  <small className="service-item_header">Free Delivery</small>
+                  <p className="service-item_count">{product.delivery}</p>
                 </div>
               </div>
             )}
@@ -250,8 +262,8 @@ const ProductDetails = () => {
               <div className="service-item">
                 <FaStore />
                 <div>
-                  <small>In Stock</small>
-                  <p>{product.stockStatus}</p>
+                  <small className="service-item_header">In Stock</small>
+                  <p className="service-item_count">{product.stockStatus}</p>
                 </div>
               </div>
             )}
@@ -260,8 +272,8 @@ const ProductDetails = () => {
               <div className="service-item">
                 <FaShieldAlt />
                 <div>
-                  <small>Guaranteed</small>
-                  <p>{product.warranty}</p>
+                  <small className="service-item_header">Guaranteed</small>
+                  <p className="service-item_count">{product.warranty}</p>
                 </div>
               </div>
             )}
@@ -271,18 +283,20 @@ const ProductDetails = () => {
       <div className="product-details-bottom">
         <div className="container">
           <div className="product-details-card">
-            <h2>Details</h2>
+            <h2 className="product-details-card_h2">Details</h2>
 
             <p className="details-description">{product.description}</p>
 
             {screenDetails.length > 0 && (
               <div className="details-section">
-                <h3>Screen</h3>
+                <h3 className="details-section_h3">Screen</h3>
 
                 {screenDetails.map(([label, value]) => (
                   <div className="details-row" key={label}>
-                    <span>{label}</span>
-                    <span>{value}</span>
+                    <span className="details-row_label">{label}</span>
+                    <span className="details-row_label details-row_label--bold">
+                      {value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -290,12 +304,14 @@ const ProductDetails = () => {
 
             {cpuDetails.length > 0 && (
               <div className="details-section">
-                <h3>CPU</h3>
+                <h3 className="details-section_h3">CPU</h3>
 
                 {cpuDetails.map(([label, value]) => (
                   <div className="details-row" key={label}>
-                    <span>{label}</span>
-                    <span>{value}</span>
+                    <span className="details-row_label">{label}</span>
+                    <span className="details-row_label details-row_label--bold">
+                      {value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -305,40 +321,50 @@ const ProductDetails = () => {
               <>
                 {product.mainCamera && product.mainCamera !== "N/A" && (
                   <div className="details-section">
-                    <h3>Camera</h3>
+                    <h3 className="details-section_h3">Camera</h3>
 
                     <div className="details-row">
-                      <span>Main camera</span>
-                      <span>{product.mainCamera}</span>
+                      <span className="details-row_label">Main camera</span>
+                      <span className="details-row_label details-row_label--bold">
+                        {product.mainCamera}
+                      </span>
                     </div>
 
                     {product.frontCamera && product.frontCamera !== "N/A" && (
                       <div className="details-row">
-                        <span>Front camera</span>
-                        <span>{product.frontCamera}</span>
+                        <span className="details-row_label">Front camera</span>
+                        <span className="details-row_label details-row_label--bold">
+                          {product.frontCamera}
+                        </span>
                       </div>
                     )}
                   </div>
                 )}
 
                 <div className="details-section">
-                  <h3>Additional information</h3>
+                  <h3 className="details-section_h3">Additional information</h3>
 
                   {product.battery && (
                     <div className="details-row">
-                      <span>Battery</span>
-                      <span>{product.battery}</span>
+                      <span className="details-row_label">Battery</span>
+                      <span className="details-row_label details-row_label--bold">
+                        {product.battery}
+                      </span>
                     </div>
                   )}
 
                   <div className="details-row">
-                    <span>Brand</span>
-                    <span>{product.brand}</span>
+                    <span className="details-row_label">Brand</span>
+                    <span className="details-row_label details-row_label--bold">
+                      {product.brand}
+                    </span>
                   </div>
 
                   <div className="details-row">
-                    <span>Category</span>
-                    <span>{product.category}</span>
+                    <span className="details-row_label">Category</span>
+                    <span className="details-row_label details-row_label--bold">
+                      {product.category}
+                    </span>
                   </div>
                 </div>
               </>

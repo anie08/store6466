@@ -236,7 +236,7 @@
   flex-direction: column;
 }
 
-.order-summary-field + .order-summary-field {
+.order-summary-field {
   margin-top: 20px;
 
   @media (max-width: 320px) {
@@ -286,9 +286,9 @@
   }
 }
 
-.field-input::placeholder {
-  color: #a0a0a0;
-}
+//.field-input::placeholder {
+//  color: #a0a0a0;
+//}
 
 .input-group {
   display: flex;
@@ -393,7 +393,7 @@
   }
 }
 
-.price-subtotal .price-label {
+ .price-label {
   font-weight: 600;
   color: #000000;
 }

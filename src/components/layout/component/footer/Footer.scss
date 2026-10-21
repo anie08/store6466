@@ -34,10 +34,7 @@
     gap: 0;
   }
 
-  @media (max-width: 350px) {
-    padding-top: 32px;
-    padding-bottom: 24px;
-  }
+
 }
 
 .footer_about {
@@ -127,10 +124,7 @@
     gap: 24px;
   }
 
-  @media (max-width: 350px) {
-    gap: 16px;
-    margin-top: 24px;
-  }
+
 }
 
 .footer_social-link {
@@ -148,10 +142,6 @@
     font-size: 24px;
   }
 
-  @media (max-width: 350px) {
-    padding: 6px;
-    font-size: 21px;
-  }
 }
 
 .footer_social-link:hover {

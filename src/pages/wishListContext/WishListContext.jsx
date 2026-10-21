@@ -35,10 +35,14 @@ const Wishlist = () => {
           <div className="wishlist-empty">
             <FaRegHeart />
 
-            <h2>Your wishlist is empty</h2>
-            <p>Save your favorite products here.</p>
+            <h2 className="wishlist-empty_h2">Your wishlist is empty</h2>
+            <p className="wishlist-empty_p">
+              Save your favorite products here.
+            </p>
 
-            <Link to="/products">Explore Products</Link>
+            <Link className="wishlist-empty_a" to="/products">
+              Explore Products
+            </Link>
           </div>
         )}
       </div>

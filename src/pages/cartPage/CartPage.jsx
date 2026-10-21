@@ -19,7 +19,7 @@ const CartPage = () => {
       <div className="cartPage__body">
         <h2 className="cartPage__body_header">Shopping Cart</h2>
         {cart.length === 0 ? (
-          <p>Your cart is empty</p>
+          <p className="cartPage__body_p">Your cart is empty</p>
         ) : (
           <div className="cart-products-list">
             {cart.map((item) => (
@@ -37,9 +37,9 @@ const CartPage = () => {
                   </div>
 
                   <div className="cart-product-info">
-                    <h3>{item.name}</h3>
+                    <h3 className="cart-product-info_h3">{item.name}</h3>
 
-                    <p>#{item.id}</p>
+                    <p className="cart-product-info_p">#{item.id}</p>
 
                     {(item.selectedColor || item.selectedStorage) && (
                       <div>

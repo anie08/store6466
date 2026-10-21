@@ -15,7 +15,7 @@ const Progress = () => {
               }}
             ></div>
           </div>
-          <span>{item.count}</span>
+          <span className="progress-item_count">{item.count}</span>
         </div>
       ))}
     </div>

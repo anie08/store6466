@@ -54,30 +54,27 @@
     color: #aaa;
   }
 
-  h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-
-  p {
-    margin: 0;
-    color: #777;
-  }
-
-  a {
-    margin-top: 10px;
-    padding: 13px 25px;
-    background: black;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-  }
 
   @media (max-width: 650px) {
     min-height: 280px;
 
-    h2 {
-      font-size: 20px;
-    }
   }
+}
+
+.wishlist-empty_a {
+  margin-top: 10px;
+  padding: 13px 25px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.wishlist-empty_h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.wishlist-empty_p {
+  margin: 0;
+  color: #777;
 }
