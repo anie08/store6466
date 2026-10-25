@@ -2,7 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import { CiHeart, CiShoppingCart, CiUser, CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
-
+import { useCart } from "../../../cartContext/CartContext.jsx";
+import { useWishlist } from "../../../wishlistContext/WishlistContext.jsx";
+// import {Wishlist} from "../../../../pages/wishListContext/"
 import MobileMenu from "../mobileMenu/MobileMenu.jsx";
 import { NAVIGATION } from "../../../../constants.js";
 import "./Header.scss";
@@ -11,6 +13,14 @@ import classNames from "classnames";
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
 
 export default function Header() {
+  const { cart } = useCart();
+  const { wishlist } = useWishlist();
+  const totalItems =
+    cart && Array.isArray(cart)
+      ? cart.reduce((sum, item) => sum + (item.quantity || 1), 0)
+      : 0;
+  const likedItems = wishlist.length;
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -53,17 +63,23 @@ export default function Header() {
         </nav>
 
         <div className="nav-icons">
-          <Link to="/wishlist" className="icon-btn">
-            <CiHeart size={24} />
-          </Link>
-
-          <Link to="/cart" className="icon-btn">
-            <CiShoppingCart size={24} />
-          </Link>
-
-          <Link to="/profile" className="icon-btn">
-            <CiUser size={24} />
-          </Link>
+          <div className="iconCircle">
+            <Link to="/wishlist" className="icon-btn">
+              <CiHeart size={24} />
+              {likedItems > 0 && <span className="badge">{likedItems}</span>}
+            </Link>
+          </div>
+          <div className="iconCircle">
+            <Link to="/cart" className="icon-btn">
+              <CiShoppingCart size={24} />
+              {totalItems > 0 && <span className="badge">{totalItems}</span>}
+            </Link>
+          </div>
+          <div className="iconCircle iconCircle--profile">
+            <Link to="/profile" className="icon-btn">
+              <CiUser size={24} />
+            </Link>
+          </div>
 
           <button className="menuBtn" onClick={toggleMenu}>
             <RxHamburgerMenu size={24} />

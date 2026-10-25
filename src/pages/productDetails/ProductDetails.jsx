@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { initialProducts } from "../../data.js";
-import { handleLike } from "../../components/handleLike/HandleLike.jsx";
+import { useWishlist } from "../../components/wishlistContext/WishlistContext.jsx";
 import RatingSystem from "../../components/ratingSystem/RatingSystem.jsx";
 import SuggestedItems from "../../components/suggestedItems/SuggestedItems.jsx";
 import { useCart } from "../../components/cartContext/CartContext.jsx";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.jsx";
+import CartProductActions from "../../components/cartProductActions/CartProductActions.jsx";
 
 import {
   FaMobileAlt,
@@ -47,13 +48,10 @@ const colorCodes = {
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const savedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
   const product = initialProducts.find((elm) => elm.id === Number(id));
 
-  const [isLiked, setIsLiked] = useState(
-    savedWishlist.some((item) => item.id === product?.id),
-  );
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const isLiked = isInWishlist(product?.id);
   const [selectedColor, setSelectedColor] = useState(
     product?.selectedColor || "",
   );
@@ -62,20 +60,30 @@ const ProductDetails = () => {
   );
   const [activeImage, setActiveImage] = useState(0);
   const [showMore, setShowMore] = useState(false);
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSelectedColor(product?.selectedColor || "");
+    setSelectedStorage(product?.builtInMemory || "");
+    setActiveImage(0);
   }, [id]);
 
   if (!product) {
     return <div className="container">Product not found</div>;
   }
+  const cartColor = selectedColor || product.selectedColor || "";
+  const cartStorage = selectedStorage || product.builtInMemory || "";
 
+  const cartItem = cart.find(
+    (item) =>
+      item.id === product.id &&
+      item.selectedColor === cartColor &&
+      item.selectedStorage === cartStorage,
+  );
   const images = product.images?.length ? product.images : [product.image];
+
+  console.log(images);
 
   const specifications = [
     {
@@ -127,15 +135,15 @@ const ProductDetails = () => {
   ].filter(([, value]) => value != null && value !== "N/A");
 
   return (
-    <div className="product-details-wraper">
-      <Breadcrumbs />
-      <div className="product-details container">
+    <div className="product-details-wraper container">
+      <Breadcrumbs lastLabel={product.name} />
+      <div className="product-details ">
         <div className="product-details_image">
           <div className="product-details_side-photos">
             {images.map((image, index) => (
               <button
                 type="button"
-                key={image}
+                key={index}
                 className={classNames("product-details_thumb", {
                   active: activeImage === index,
                 })}
@@ -223,28 +231,39 @@ const ProductDetails = () => {
           <div className="product-details_buttons">
             <button
               type="button"
-              className="wishlist-btn product-details_buttons_button"
-              onClick={() => handleLike(product, setIsLiked)}
+              aria-pressed={isLiked}
+              className={classNames(
+                "wishlist-btn product-details_buttons_button",
+                {
+                  "  product-details_buttons_button--liked": isLiked,
+                },
+              )}
+              onClick={() => toggleWishlist(product)}
             >
-              {isLiked && "liked"}
-              Add to Wishlist
+              {isLiked ? "Remove from Wishlist" : "Add to Wishlist"}
             </button>
-
-            <button
-              type="button"
-              className="cart-btn product-details_buttons_button"
-              onClick={() =>
-                addToCart(
-                  product,
-                  selectedColor,
-                  selectedStorage,
-                  images[activeImage],
-                  1,
-                )
-              }
-            >
-              Add to Cart
-            </button>
+            {cartItem ? (
+              <CartProductActions
+                item={cartItem}
+                showSum={false}
+                variant="details"
+              />
+            ) : (
+              <button
+                type="button"
+                className="cart-btn product-details_buttons_button"
+                onClick={() =>
+                  addToCart(
+                    product,
+                    selectedColor,
+                    selectedStorage,
+                    images[activeImage],
+                  )
+                }
+              >
+                Add to Cart
+              </button>
+            )}
           </div>
 
           <div className="product-details_services">

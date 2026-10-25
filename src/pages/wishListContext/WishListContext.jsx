@@ -1,18 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import ProductItem from "../../components/productItem/ProductItem.jsx";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.jsx";
+import { useWishlist } from "../../components/wishlistContext/WishlistContext.jsx";
 import "./WishListContext.scss";
 
 const Wishlist = () => {
-  const [wishlist, setWishlist] = useState(() =>
-    JSON.parse(localStorage.getItem("wishlist") || "[]"),
-  );
-
-  const updateWishlist = () => {
-    setWishlist(JSON.parse(localStorage.getItem("wishlist") || "[]"));
-  };
+  const { wishlist } = useWishlist();
 
   return (
     <div className="wishlist-page">
@@ -24,11 +18,7 @@ const Wishlist = () => {
         {wishlist.length > 0 ? (
           <div className="wishlist-products">
             {wishlist.map((elm) => (
-              <ProductItem
-                key={elm.id}
-                elm={elm}
-                onWishlistChange={updateWishlist}
-              />
+              <ProductItem key={elm.id} elm={elm} />
             ))}
           </div>
         ) : (

@@ -54,6 +54,7 @@
     display: none;
   }
 }
+
 .search-icon_input {
   font-weight: 500;
   color: #656565;
@@ -103,6 +104,7 @@
     color: black;
   }
 }
+
 .nav-icons {
   display: flex;
   gap: 28px;
@@ -115,7 +117,7 @@
   @media screen and (max-width: 767px) {
     display: flex;
     margin-left: auto;
-    gap: 0;
+    gap: 10px;
   }
 }
 
@@ -123,13 +125,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
   color: #111;
   text-decoration: none;
-
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
+  flex-grow: 1;
 }
 
 .menuBtn {
@@ -148,4 +146,44 @@
     height: 40px;
     flex-shrink: 0;
   }
+}
+
+.iconCircle {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  position: relative;
+
+  &--profile {
+    background-color: transparent;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.navCart {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }

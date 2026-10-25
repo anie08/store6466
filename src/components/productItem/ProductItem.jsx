@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { memo, useState } from "react";
+import { memo } from "react";
 import "./ProductItem.scss";
-import { handleLike } from "../handleLike/HandleLike.jsx";
+import { useWishlist } from "../wishlistContext/WishlistContext.jsx";
 
-const ProductItem = ({ elm, onWishlistChange }) => {
-  const savedWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-  const [isLiked, setIsLiked] = useState(
-    savedWishlist.some((item) => item.id === elm.id),
-  );
+const ProductItem = ({ elm }) => {
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const isLiked = isInWishlist(elm.id);
 
   return (
     <div className="new-arrivals_item">
@@ -19,7 +16,7 @@ const ProductItem = ({ elm, onWishlistChange }) => {
             <button
               type="button"
               className="product-card_heart"
-              onClick={() => handleLike(elm, setIsLiked, onWishlistChange)}
+              onClick={() => toggleWishlist(elm)}
             >
               {isLiked ? (
                 <FaHeart className="product-card_heart_icon product-card_heart_icon--liked" />

@@ -1,10 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import classNames from "classnames";
 import "./Breadcrumbs.scss";
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ lastLabel }) => {
   const { pathname } = useLocation();
-
-  console.log(pathname.split("/").filter(Boolean));
 
   const paths = pathname
     .split("/")
@@ -13,20 +12,34 @@ const Breadcrumbs = () => {
       name: item,
       path: arr.slice(0, index + 1).join("/"),
     }));
+
   const pathsToPaint = [{ name: "home", path: "" }, ...paths];
 
   return (
-    <div className="breadcrumbs-container container">
-      <div className="breadcrumbs">
-        {pathsToPaint.map((item) => (
+    <nav className="breadcrumbs" aria-label="Breadcrumb">
+      {pathsToPaint.map((item, index) => {
+        const isCurrent = index === pathsToPaint.length - 1;
+
+        return (
           <div className="breadcrumbs-item" key={item.path || "home"}>
-            <Link className="breadcrumbs-item_a" to={"/" + item.path}>
-              {item.name}
-            </Link>
+            {isCurrent ? (
+              <span
+                className={classNames("breadcrumbs-item_a", {
+                  "breadcrumbs-item_a--current": isCurrent,
+                })}
+                aria-current="page"
+              >
+                {lastLabel || item.name}
+              </span>
+            ) : (
+              <Link className="breadcrumbs-item_a" to={"/" + item.path}>
+                {item.name}
+              </Link>
+            )}
           </div>
-        ))}
-      </div>
-    </div>
+        );
+      })}
+    </nav>
   );
 };
 

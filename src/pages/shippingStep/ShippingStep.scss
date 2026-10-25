@@ -1,0 +1,87 @@
+$color-black: #000000;
+$color-gray-bg: #f6f6f6;
+$color-text-body: #545454;
+$color-border: #e5e5e5;
+
+.shipping-step {
+  width: 100%;
+}
+
+.shipping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.shipping-card {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: $color-gray-bg;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.shipping-card--selected {
+  border-color: $color-black;
+}
+
+.shipping-card__radio-wrapper {
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.shipping-card__radio {
+  accent-color: $color-black;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.shipping-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shipping-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-black;
+}
+
+.shipping-card__desc {
+  font-size: 14px;
+  color: $color-text-body;
+}
+
+.shipping-card__date {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-body;
+}
+
+.date-picker-btn {
+  background: transparent;
+  border: 1px solid $color-border;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: $color-black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-picker-btn__icon,
+.date-picker-btn__arrow {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}

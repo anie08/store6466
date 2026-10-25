@@ -1,6 +1,7 @@
 
 .products-page {
-  padding: 40px 0;
+  padding-top: 40px;
+
   background: white;
 
   @media (max-width: 650px) {
@@ -11,6 +12,7 @@
 .products-layout {
   display: flex;
   align-items: flex-start;
+
   gap: 30px;
 
   @media (max-width: 1000px) {

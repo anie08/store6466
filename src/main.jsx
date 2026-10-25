@@ -3,9 +3,12 @@ import "./index.css";
 import "./styles/Style.scss";
 import App from "./App.jsx";
 import CartProvider from "../src/components/cartContext/CartContext.jsx";
+import WishlistProvider from "./components/wishlistContext/WishlistContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <CartProvider>
-    <App />
+    <WishlistProvider>
+      <App />
+    </WishlistProvider>
   </CartProvider>,
 );

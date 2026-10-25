@@ -102,10 +102,9 @@ const Products = () => {
   const visibleProducts = products.slice((page - 1) * perPage, page * perPage);
 
   return (
-    <div className="products-page">
+    <div className="products-page container ">
       <Breadcrumbs />
-
-      <div className="products-layout container">
+      <div className="products-layout">
         <div
           className={`products-sidebar ${
             mobileFiltersOpen ? "mobile-open" : ""
