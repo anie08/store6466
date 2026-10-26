@@ -9,6 +9,7 @@ import CartPage from "./pages/cartPage/CartPage.jsx";
 import AddAdress from "./pages/addAdress/AddAdress.jsx";
 import CheckoutLayout from "./components/checkoutLayout/CheckoutLayout.jsx";
 import ShippingStep from "./pages/shippingStep/ShippingStep.jsx";
+import PaymentStep from "./pages/payment/Payment.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -24,7 +25,7 @@ const App = () => {
             <Route index element={<Navigate to="address" replace />} />
             <Route path="address" element={<AddAdress />} />
             <Route path="shipping" element={<ShippingStep />} />
-            {/*<Route path="payment" element={<PaymentStep />} />*/}
+            <Route path="payment" element={<PaymentStep />} />{" "}
           </Route>
         </Route>
       </Routes>

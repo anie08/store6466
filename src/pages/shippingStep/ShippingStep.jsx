@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { FiCalendar, FiChevronDown } from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import "./ShippingStep.scss";
 
 const shippingData = [
@@ -27,12 +27,16 @@ const shippingData = [
 ];
 
 const ShippingStep = () => {
-  const navigate = useNavigate();
-  const [selectedId, setSelectedId] = useState(1);
-
   const handleSelect = (id) => {
     setSelectedId(id);
   };
+  const { setCanGoNext, shipping, setShipping } = useOutletContext();
+  const [selectedId, setSelectedId] = useState(shipping?.id ?? 1);
+
+  useEffect(() => {
+    setCanGoNext(true);
+    setShipping(shippingData.find((item) => item.id === selectedId));
+  }, [selectedId, setCanGoNext, setShipping]);
 
   return (
     <div className="shipping-step">
@@ -79,24 +83,6 @@ const ShippingStep = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="checkout-layout__actions">
-        <button
-          type="button"
-          className="checkout-btn checkout-btn--outline"
-          onClick={() => navigate("/checkout/address")}
-        >
-          Back
-        </button>
-        <button
-          type="button"
-          className="checkout-btn checkout-btn--primary"
-          disabled={!selectedId}
-          onClick={() => navigate("/checkout/payment")}
-        >
-          Next
-        </button>
       </div>
     </div>
   );

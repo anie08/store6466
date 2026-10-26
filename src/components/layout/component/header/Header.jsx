@@ -86,8 +86,7 @@ export default function Header() {
           </button>
         </div>
       </header>
-
-      {isOpen && <MobileMenu closeMenu={closeMenu} />}
+      <MobileMenu closeMenu={closeMenu} isOpen={isOpen} />{" "}
     </>
   );
 }

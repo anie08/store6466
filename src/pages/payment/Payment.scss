@@ -1,0 +1,92 @@
+.payment-step__summary{
+  border: 2px solid #EBEBEB;
+  flex: 1;
+  padding:32px 24px;
+  border-radius: 10px;
+}
+.payment-step{
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  @media (max-width: 1200px) { gap: 48px; }
+  @media (max-width: 767px)  { flex-direction: column; gap: 40px; }
+}
+.payment-step__summary-title {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.payment-step__items {
+display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.payment-step__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  padding: 16px 24px 16px 16px;
+  border-radius: 13px;
+  background: #f6f6f6;
+}
+.payment-step__item-img {
+  width: 48px;
+  height: 48px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.payment-step__item-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.payment-step__item-price {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.payment-step__info {
+  margin-bottom: 24px;
+}
+
+.payment-step__label {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #545454;
+}
+
+.payment-step__value {
+  font-size: 16px;
+}
+
+.payment-step__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.payment-step__price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #545454;
+
+  &--bold {
+    font-weight: 500;
+    color: #000;
+  }
+
+  &--total {
+    margin-top: 8px;
+    font-weight: 500;
+    color: #000;
+  }
+}

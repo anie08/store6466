@@ -1,12 +1,11 @@
 import { useCart } from "../../components/cartContext/CartContext.jsx";
-import { FiMinus, FiPlus, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import "./CartPage.scss";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.jsx";
 import CartProductActions from "../../components/cartProductActions/CartProductActions.jsx";
 
 const CartPage = () => {
-  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { cart } = useCart();
 
   const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,

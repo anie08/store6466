@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 import { FiX, FiPlus, FiEdit2 } from "react-icons/fi";
 import "./AddAdress.scss";
+import { useOutletContext } from "react-router-dom";
 
 const addresesData = [
   {
@@ -22,13 +22,19 @@ const addresesData = [
 ];
 
 const CheckoutPage = () => {
-  const navigate = useNavigate();
-  const [selectedAddressId, setSelectedAddressId] = useState(1);
+
   const [addresses, setAddresses] = useState(addresesData);
 
   const handleSelect = (id) => {
     setSelectedAddressId(id);
   };
+  const { setCanGoNext, address, setAddress } = useOutletContext();
+  const [selectedAddressId, setSelectedAddressId] = useState(address?.id ?? 1);
+
+  useEffect(() => {
+    setCanGoNext(selectedAddressId !== null);
+    setAddress(addresses.find((item) => item.id === selectedAddressId) ?? null);
+  }, [selectedAddressId, addresses, setCanGoNext, setAddress]);
 
   const handleDelete = (id, e) => {
     e.stopPropagation();
@@ -102,28 +108,6 @@ const CheckoutPage = () => {
           <span className="add-btn__text">Add New Address</span>
         </button>
         <div className="add-address-separator__line"></div>
-      </div>
-
-      <div className="checkout-layout__actions">
-        <button
-          type="button"
-          className="checkout-btn checkout-btn--outline"
-          onClick={() => navigate("/cart")}
-        >
-          Back
-        </button>
-
-
-          <button
-            type="button"
-            className="checkout-btn checkout-btn--primary"
-            disabled={!selectedAddressId}
-            onClick={() => navigate("/checkout/shipping")}
-          >
-            Next
-          </button>
-
-
       </div>
     </div>
   );

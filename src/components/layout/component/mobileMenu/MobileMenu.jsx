@@ -1,18 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
-
+import classNames from "classnames";
 import { NAVIGATION } from "../../../../constants.js";
 import "./MobileMenu.scss";
 
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
 
-const MobileMenu = ({ closeMenu }) => {
+const MobileMenu = ({ closeMenu, isOpen }) => {
   return (
-    <div className="mobile-menu">
+    <div className={classNames("mobile-menu", { "mobile-menu--open": isOpen })}>
       <button className="mobile-menu__close" onClick={closeMenu}>
         <span className="mobile-menu__close-icon">X</span>
       </button>
-
       <ul className="mobile-menu__list">
         {NAVIGATION.map((item) => (
           <li className="page-link" key={item.to}>
