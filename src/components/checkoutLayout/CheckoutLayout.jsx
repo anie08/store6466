@@ -7,10 +7,20 @@ const CHECKOUT_NAVIGATION = {
   address: {
     back: "/cart",
     next: "/checkout/shipping",
+    titleOne: "Back",
+    titleTwo: "Next",
   },
   shipping: {
     back: "/checkout/address",
     next: "/checkout/payment",
+    titleOne: "Back",
+    titleTwo: "Next",
+  },
+  payment: {
+    back: "/checkout/shipping",
+    next: "/checkout/payment",
+    titleOne: "Back",
+    titleTwo: "Pay",
   },
 };
 
@@ -23,6 +33,7 @@ const CheckoutLayout = () => {
   const paths = CHECKOUT_NAVIGATION[step];
   const [address, setAddress] = useState(null);
   const [shipping, setShipping] = useState(null);
+  const [payment, setPayment] = useState(null);
 
   return (
     <div className="checkout-layout">
@@ -37,6 +48,8 @@ const CheckoutLayout = () => {
               setAddress,
               shipping,
               setShipping,
+              payment,
+              setPayment,
             }}
           />
         </div>
@@ -48,7 +61,7 @@ const CheckoutLayout = () => {
               className="checkout-btn checkout-btn--outline"
               onClick={() => navigate(paths.back)}
             >
-              Back
+              {paths.titleOne}
             </button>
             <button
               type="button"
@@ -56,7 +69,7 @@ const CheckoutLayout = () => {
               disabled={!canGoNext}
               onClick={() => navigate(paths.next)}
             >
-              Next
+              {paths.titleTwo}
             </button>
           </div>
         )}

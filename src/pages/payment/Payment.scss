@@ -90,3 +90,186 @@ display: flex;
     color: #000;
   }
 }
+.payment-step__payment{
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 10.4rem;
+  box-shadow: 0px 0px 17px 2px #0000005c;
+  border: 1px solid #EBEBEB;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+.payment-step__tabs{
+  margin-top: 16px;
+  display: flex;
+  gap: 20px;
+}
+.payment-step__tab{
+  background: none;
+  border: none;
+  padding: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+
+}
+.payment-step__tab--active{
+color: black;
+  border-bottom-color:#000000 ;
+}
+.payment-step__card-front{
+background-color: black;
+  max-width: 337px;
+  height: 190px;
+  border-radius: 20px;
+}
+.payment-step__card-top{
+  display: flex;
+  padding-top: 10px;
+  gap: 5px;
+}
+.payment-step__card-contactless{
+  svg{
+    color: #EBEBEB;
+  }
+}
+.payment-step__card-logo{
+  svg{
+  width: 30px;
+  aspect-ratio: 1;}
+}
+.payment-step__card-group{
+  color: white;
+}
+.payment-step__card-name{
+  color: white;
+}
+.payment-step__card-date{
+  color: white;
+}
+.payment-step__card {
+  width: 100%;
+  max-width: 337px;
+  height: 190px;
+  margin: 24px 0 40px;
+  perspective: 1000px;
+}
+.payment-step__card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+
+  &--flipped {
+    transform: rotateY(180deg);
+  }
+}
+.payment-step__card-front,
+.payment-step__card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  color: #fff;
+  background-color: #000;
+  backface-visibility: hidden;
+}
+
+.payment-step__card-front {
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
+.payment-step__card-back {
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  transform: rotateY(180deg);     }
+.payment-step__card-stripe {
+  height: 40px;
+  background-color: #2b2b2b;
+}
+
+.payment-step__card-signature {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 36px;
+  margin: 0 24px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+}
+
+.payment-step__card-cvv {
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #000;
+}
+
+.payment-step__card-back-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 24px;
+}
+
+.payment-step__card-caption {
+  font-size: 11px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.payment-step__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-step__row {
+  display: flex;
+  gap: 16px;
+}
+
+.payment-step__field {
+  flex: 1;
+
+  input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #cecece;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #979797;
+    }
+
+    &:focus-visible {
+      border-color: #000;
+      outline: 1px solid #000;
+    }
+  }
+}
+.payment-step__form {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.payment-step__card-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.payment-step__checkbox{
+  margin-top:20px;
+  display: flex;
+  gap: 10px;
+}
