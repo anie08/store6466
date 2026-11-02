@@ -8,6 +8,7 @@ import { useWishlist } from "../../../wishlistContext/WishlistContext.jsx";
 import MobileMenu from "../mobileMenu/MobileMenu.jsx";
 import { NAVIGATION } from "../../../../constants.js";
 import "./Header.scss";
+import SearchModal from "../../../../searchModal/SearchModal.jsx";
 import classNames from "classnames";
 
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
@@ -22,6 +23,7 @@ export default function Header() {
   const likedItems = wishlist.length;
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -40,14 +42,14 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="search-bar">
+        <button
+          type="button"
+          className="search-bar"
+          onClick={() => setIsSearchOpen(true)}
+        >
           <CiSearch className="search-icon" size={20} />
-          <input
-            className="search-icon_input"
-            type="text"
-            placeholder="Search"
-          />
-        </div>
+          <span className="search-bar__placeholder">Search</span>
+        </button>
 
         <nav className="nav-links">
           {NAVIGATION.map((item) => (
@@ -63,6 +65,16 @@ export default function Header() {
         </nav>
 
         <div className="nav-icons">
+          <div className="iconCircle iconCircle--search">
+            <button
+              type="button"
+              className="search-btn-mobile icon-btn"
+              aria-label="Search"
+              onClick={() => setIsSearchOpen(true)}
+            >
+              <CiSearch size={24} />
+            </button>
+          </div>
           <div className="iconCircle">
             <Link to="/wishlist" className="icon-btn">
               <CiHeart size={24} />
@@ -86,7 +98,8 @@ export default function Header() {
           </button>
         </div>
       </header>
-      <MobileMenu closeMenu={closeMenu} isOpen={isOpen} />{" "}
+      <MobileMenu closeMenu={closeMenu} isOpen={isOpen} />
+      {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
     </>
   );
 }

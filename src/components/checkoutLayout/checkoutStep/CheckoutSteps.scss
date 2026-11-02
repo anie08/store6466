@@ -19,7 +19,7 @@ $color-text-sub: #717171;
   text-align: left;
   opacity: 0.4;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  //transition: opacity 0.2s ease;
 
   &:focus-visible {
     outline: 2px solid $color-black;
@@ -28,7 +28,6 @@ $color-text-sub: #717171;
 
   &--active {
     opacity: 1;
-    font-weight: 600;
   }
 }
 

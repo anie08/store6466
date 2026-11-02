@@ -17,10 +17,15 @@
   display: flex;
   justify-content: flex-end;
   gap: 16px;
+  @media  (max-width: 768px) {
+    min-width: 50%;
+    gap: 6px;
+  }
 }
 
 .checkout-btn {
-  min-width: 160px;
+  width: 50%;
+  max-width: 160px;
   padding: 16px;
   border-radius: 8px;
   font-size: 14px;
@@ -36,6 +41,7 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
+
   }
 
   &--primary {

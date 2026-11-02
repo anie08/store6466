@@ -23,6 +23,9 @@ $color-border: #e5e5e5;
   border: 1px solid transparent;
   cursor: pointer;
   transition: border-color 0.2s ease;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 }
 
 .shipping-card--selected {
@@ -64,6 +67,9 @@ $color-border: #e5e5e5;
   font-size: 14px;
   font-weight: 500;
   color: $color-text-body;
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 12px 0 0 34px;}
 }
 
 .date-picker-btn {

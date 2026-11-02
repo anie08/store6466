@@ -1,6 +1,6 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import { useCart } from "../../components/cartContext/CartContext.jsx";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { MdContactless } from "react-icons/md";
 import { MastercardIcon } from "react-svg-credit-card-payment-icons";
 import { FcSimCardChip } from "react-icons/fc";
@@ -47,34 +47,49 @@ const PaymentStep = () => {
     e.preventDefault();
     setIsPaid(true);
   };
+
+  const totalQuantity = useMemo(() => {
+    return cart.reduce((sum, acc) => sum + acc.quantity, 0);
+  }, [cart]);
+
   return (
     <div className="payment-step ">
       <div className="payment-step__summary  ">
         <h3 className="payment-step__summary-title">Summary</h3>
         <div className="payment-step__items">
-          {cart.map((item) => (
-            <div
-              className="payment-step__item"
-              key={`${item.id} - ${item.selectedColor} - ${item.selectedStorage}`}
-            >
-              <div className="payment-step__item-img">
-                <img src={item.image} alt={item.name} />
+          {cart.map((item) => {
+            const quantity = item.quantity;
+            return (
+              <div
+                className="payment-step__item"
+                key={`${item.id} - ${item.selectedColor} - ${item.selectedStorage}`}
+              >
+                <div className="payment-step__item-img">
+                  <img src={item.image} alt={item.name} />
+                </div>
+                <span className="payment-step__item-name">
+                  {item.name} ({quantity})
+                </span>
+                <span className="payment-step__item-price">
+                  ${item.price * quantity}
+                </span>
               </div>
-              <span className="payment-step__item-name">{item.name}</span>
-              <span className="payment-step__item-price">
-                ${item.price * item.quantity}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="payment-step__info">
           <p className="payment-step__label">Address</p>
-          <p className="payment-step__value">{address?.address}</p>
+          <p className="payment-step__value">
+            {address?.address || "Not selected"}
+          </p>
         </div>
 
         <div className="payment-step__info">
           <p className="payment-step__label">Shipment method</p>
           <p className="payment-step__value">{shipping?.title}</p>
+          <p className="payment-step__value">
+            {shipping?.title || "Not selected"}
+          </p>
         </div>
 
         <div className="payment-step__prices">
@@ -91,6 +106,10 @@ const PaymentStep = () => {
               Estimated shipping & Handling
             </span>
             <span className="payment-step__price-value">${shippingCost}</span>
+          </div>
+          <div className="payment-step__price-row payment-step__price-row--bold">
+            <span className="payment-step__price-label">Quantity</span>
+            <span className="payment-step__price-value">{totalQuantity}</span>
           </div>
           <div className="payment-step__price-row payment-step__price-row--bold">
             <span className="payment-step__price-label">Total</span>
@@ -180,8 +199,9 @@ const PaymentStep = () => {
                   </span>
                 </div>
 
-                <div className="payment-step__card-number">{card.number}</div>
-
+                <div className="payment-step__card-number">
+                  {card.number || "•••• •••• •••• ••••"}
+                </div>
                 <div className="payment-step__card-bottom">
                   <div className="payment-step__card-holder">
                     <span className="payment-step__card-name">

@@ -38,7 +38,7 @@
 
 .cart-product-sum {
   text-align: right;
-  min-width: 70px;
+  min-width: 90px;
 }
 
 .cart-product__quantity-button {
@@ -50,6 +50,10 @@
   background: transparent;
   cursor: pointer;
   font-size: 16px;
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 
   @media (max-width: 320px) {
     padding: 4px;

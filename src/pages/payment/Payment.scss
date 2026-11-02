@@ -105,6 +105,11 @@ display: flex;
   margin-top: 16px;
   display: flex;
   gap: 20px;
+  .payment-step__tabs {
+    @media (max-width: 767px) {
+      gap: 16px;
+    }
+  }
 }
 .payment-step__tab{
   background: none;
@@ -115,7 +120,8 @@ display: flex;
   outline: none;
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease, color 0.3s ease;
-
+  .payment-step__tab {
+    white-space: nowrap;}
 }
 .payment-step__tab--active{
 color: black;

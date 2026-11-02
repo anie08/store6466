@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { FiX, FiPlus, FiEdit2 } from "react-icons/fi";
 import "./AddAdress.scss";
 import { useOutletContext } from "react-router-dom";
+import AddAdressModal from "../../components/newAddAdressModal/NewAddAdressModal.jsx";
 
 const addresesData = [
   {
@@ -22,7 +23,6 @@ const addresesData = [
 ];
 
 const CheckoutPage = () => {
-
   const [addresses, setAddresses] = useState(addresesData);
 
   const handleSelect = (id) => {
@@ -30,7 +30,7 @@ const CheckoutPage = () => {
   };
   const { setCanGoNext, address, setAddress } = useOutletContext();
   const [selectedAddressId, setSelectedAddressId] = useState(address?.id ?? 1);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     setCanGoNext(selectedAddressId !== null);
     setAddress(addresses.find((item) => item.id === selectedAddressId) ?? null);
@@ -42,6 +42,11 @@ const CheckoutPage = () => {
     if (selectedAddressId === id) {
       setSelectedAddressId(null);
     }
+  };
+  const handleAddAdress = (newAddress) => {
+    setAddresses([...addresses, newAddress]);
+    setSelectedAddressId(newAddress.id);
+    setIsModalOpen(false);
   };
 
   return (
@@ -75,7 +80,9 @@ const CheckoutPage = () => {
                 )}
               </div>
               <p className="address-card__text">{item.address}</p>
-              <p className="address-card__phone">{item.phone}</p>
+              {item.phone && (
+                <p className="address-card__phone">{item.phone}</p>
+              )}
             </div>
 
             <div className="address-card__actions">
@@ -101,7 +108,11 @@ const CheckoutPage = () => {
 
       <div className="add-address-separator">
         <div className="add-address-separator__line"></div>
-        <button type="button" className="add-btn">
+        <button
+          type="button"
+          className="add-btn"
+          onClick={() => setIsModalOpen(true)}
+        >
           <span className="add-btn__icon">
             <FiPlus />
           </span>
@@ -109,6 +120,12 @@ const CheckoutPage = () => {
         </button>
         <div className="add-address-separator__line"></div>
       </div>
+      {isModalOpen && (
+        <AddAdressModal
+          onClose={() => setIsModalOpen(false)}
+          onSave={handleAddAdress}
+        />
+      )}
     </div>
   );
 };

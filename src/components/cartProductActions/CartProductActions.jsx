@@ -2,7 +2,7 @@ import { FiMinus, FiPlus, FiX } from "react-icons/fi";
 import classNames from "classnames";
 import { useCart } from "../cartContext/CartContext.jsx";
 import "./CartProductActions.scss";
-
+const MAX_QUANTITY = 10;
 const CartProductActions = ({ item, showSum = true, variant }) => {
   const { updateQuantity, removeFromCart } = useCart();
   const { id, selectedColor, selectedStorage, quantity, price } = item;
@@ -30,18 +30,19 @@ const CartProductActions = ({ item, showSum = true, variant }) => {
           <input
             type="number"
             min="1"
+            max={MAX_QUANTITY}
             aria-label="Quantity"
             value={quantity}
             onChange={(e) => {
-              const newQuantity = Number(e.target.value);
-              if (newQuantity >= 1) {
-                updateQuantity(
-                  id,
-                  selectedColor,
-                  selectedStorage,
-                  newQuantity - quantity,
-                );
-              }
+              const typed = Number(e.target.value);
+              if (typed < 1) return;
+              const newQuantity = Math.min(typed, MAX_QUANTITY);
+              updateQuantity(
+                id,
+                selectedColor,
+                selectedStorage,
+                newQuantity - quantity,
+              );
             }}
           />
         </span>
@@ -49,6 +50,7 @@ const CartProductActions = ({ item, showSum = true, variant }) => {
           type="button"
           className="cart-product__quantity-button"
           aria-label="Increase quantity"
+          disabled={quantity >= MAX_QUANTITY}
           onClick={() => updateQuantity(id, selectedColor, selectedStorage, 1)}
         >
           <FiPlus />

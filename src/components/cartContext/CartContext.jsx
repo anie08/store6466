@@ -76,7 +76,7 @@ export default function CartProvider({ children }) {
           item.id === id &&
           item.selectedColor === selectedColor &&
           item.selectedStorage === selectedStorage
-            ? { ...item, quantity: item.quantity + amount }
+            ? { ...item, quantity: Math.min(item.quantity + amount, 10) }
             : item,
         )
         .filter((item) => item.quantity > 0),
