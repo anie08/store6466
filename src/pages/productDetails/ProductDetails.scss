@@ -331,28 +331,77 @@
 }
 
 .product-details_buttons_button {
-  border: 1px solid white;
-  color: #a0a0a0;
-  width: 200px;
-  min-width: 200px;
-  padding: 0;
+  //border: 1px solid white;
+  //color: #a0a0a0;
+  //width: 200px;
+  //min-width: 200px;
+  //padding: 0;
+  //align-items: center;
+  //justify-content: center;
+  //border-radius: 4px;
+  //display: inline-flex;
+  //background: transparent;
+  //font-size: 16px;
+  //height: 55px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  display: inline-flex;
-  background: transparent;
+  gap: 10px;
+  flex: 1;
+  max-width: 260px;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font: inherit;
   font-size: 16px;
-  height: 55px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
+  &:active {
+    transform: scale(0.98);}
+  &:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
 
-  @media (max-width: 1200px) {
+  &--wishlist {
+    background: #fff;
+    color: #000;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+
+  &--liked {
+    background: #f5f5f5;}
+  &--cart {
+    background: #000;
+    color: #fff;
+
+    &:hover {
+      background: #333;
+    }
+  }
+
+  @media (max-width: 767px) {
+    max-width: none;
+    height: 52px;
+    font-size: 14px;
+  }
+
+
+    @media (max-width: 1200px) {
     width: calc((100% - 15px) / 2);
     min-width: 0;
   }
 
-  @media (max-width: 767px) {
-    width: calc((100% - 10px) / 2);
-    font-size: 14px;
-  }
+  //@media (max-width: 767px) {
+  //  width: calc((100% - 10px) / 2);
+  //  font-size: 14px;
+  //}
 }
 
 .wishlist-btn {
@@ -501,15 +550,17 @@
   @media (max-width: 767px) {
     gap: 12px;
     padding: 12px 0;
-  }
-
-  @media (max-width: 767px) {
     font-size: 13px;
-    overflow-wrap: anywhere;
   }
 }
+.details-row_label {
+  flex-shrink: 0;}
+.details-row_label--bold {
+  flex-shrink: 1;
+  text-align: right;
+  font-weight: 500;  }
 
-.details-view-more {
+  .details-view-more {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -534,5 +585,14 @@
   }
 }
 .product-details_buttons_button--liked{
-  background-color: red;
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+.product-details_buttons_icon {
+  display: flex;
+  font-size: 18px;
+}
+.product-details_buttons_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

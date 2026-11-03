@@ -4,7 +4,14 @@
   gap: 12px;
   margin-left: auto;
   &--details {
-    margin-left: 0;}
+    margin-left: 0;
+    flex: 1;
+    max-width: 260px;
+
+    @media (max-width: 767px) {
+      max-width: none;
+    }
+  }
 
 }
 .cart-product-quantity {

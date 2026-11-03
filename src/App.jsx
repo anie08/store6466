@@ -10,9 +10,11 @@ import AddAdress from "./pages/addAdress/AddAdress.jsx";
 import CheckoutLayout from "./components/checkoutLayout/CheckoutLayout.jsx";
 import ShippingStep from "./pages/shippingStep/ShippingStep.jsx";
 import PaymentStep from "./pages/payment/Payment.jsx";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop.jsx";
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />

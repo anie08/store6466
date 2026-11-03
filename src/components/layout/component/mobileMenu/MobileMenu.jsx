@@ -3,14 +3,22 @@ import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 import classNames from "classnames";
 import { NAVIGATION } from "../../../../constants.js";
 import "./MobileMenu.scss";
+import { FiX } from "react-icons/fi";
 
 const getActiveClass = ({ isActive }) => (isActive ? "active-link" : "");
 
 const MobileMenu = ({ closeMenu, isOpen }) => {
   return (
     <div className={classNames("mobile-menu", { "mobile-menu--open": isOpen })}>
-      <button className="mobile-menu__close" onClick={closeMenu}>
-        <span className="mobile-menu__close-icon">X</span>
+      <button
+        type="button"
+        className="mobile-menu__close"
+        aria-label="Close menu"
+        onClick={closeMenu}
+      >
+        <span className="mobile-menu__close-icon">
+          <FiX />
+        </span>
       </button>
       <ul className="mobile-menu__list">
         {NAVIGATION.map((item) => (

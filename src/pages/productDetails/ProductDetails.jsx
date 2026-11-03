@@ -7,7 +7,8 @@ import SuggestedItems from "../../components/suggestedItems/SuggestedItems.jsx";
 import { useCart } from "../../components/cartContext/CartContext.jsx";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs.jsx";
 import CartProductActions from "../../components/cartProductActions/CartProductActions.jsx";
-
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 import {
   FaMobileAlt,
   FaMicrochip,
@@ -233,14 +234,18 @@ const ProductDetails = () => {
               type="button"
               aria-pressed={isLiked}
               className={classNames(
-                "wishlist-btn product-details_buttons_button",
-                {
-                  "  product-details_buttons_button--liked": isLiked,
-                },
+                "product-details_buttons_button",
+                "product-details_buttons_button--wishlist",
+                { "product-details_buttons_button--liked": isLiked },
               )}
               onClick={() => toggleWishlist(product)}
             >
-              {isLiked ? "Remove from Wishlist" : "Add to Wishlist"}
+              <span className="product-details_buttons_icon">
+                {isLiked ? <FaHeart /> : <FaRegHeart />}
+              </span>
+              <span className="product-details_buttons_text">
+                {isLiked ? "In Wishlist" : "Add to Wishlist"}
+              </span>
             </button>
             {cartItem ? (
               <CartProductActions
@@ -251,7 +256,7 @@ const ProductDetails = () => {
             ) : (
               <button
                 type="button"
-                className="cart-btn product-details_buttons_button"
+                className="product-details_buttons_button product-details_buttons_button--cart"
                 onClick={() =>
                   addToCart(
                     product,
@@ -261,7 +266,12 @@ const ProductDetails = () => {
                   )
                 }
               >
-                Add to Cart
+                <span className="product-details_buttons_icon">
+                  <FiShoppingCart />
+                </span>
+                <span className="product-details_buttons_text">
+                  Add to Cart
+                </span>
               </button>
             )}
           </div>

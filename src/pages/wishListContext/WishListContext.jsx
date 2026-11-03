@@ -13,7 +13,9 @@ const Wishlist = () => {
       <div className="container">
         <Breadcrumbs />
 
-        <h1 className="wishlist-title">My Wishlist ({wishlist.length})</h1>
+        <h1 className="wishlist-title">
+          My Wishlist {wishlist.length > 0 && `(${wishlist.length})`}
+        </h1>
 
         {wishlist.length > 0 ? (
           <div className="wishlist-products">

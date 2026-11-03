@@ -9,10 +9,12 @@ const RatingSystem = () => {
         <p className="rating_p">Reviews</p>
         <div className="rating_form">
           <div className="rating_left-side">
-            <h4 className="rating_left-side_h4">{reviewsData.rating}</h4>
-            <p className="rating_left-side_p">
-              of {reviewsData.totalReviews} reviews
-            </p>
+            <div className="rating_left-side__h-p-wraper">
+              <h4 className="rating_left-side_h4">{reviewsData.rating}</h4>
+              <p className="rating_left-side_p">
+                of {reviewsData.totalReviews} reviews
+              </p>
+            </div>
             <Stars rating={reviewsData.rating} />
           </div>
           <div className="rating_right-side">
