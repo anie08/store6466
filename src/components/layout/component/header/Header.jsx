@@ -1,10 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import { CiHeart, CiShoppingCart, CiUser, CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "../../../cartContext/CartContext.jsx";
 import { useWishlist } from "../../../wishlistContext/WishlistContext.jsx";
-// import {Wishlist} from "../../../../pages/wishListContext/"
 import MobileMenu from "../mobileMenu/MobileMenu.jsx";
 import { NAVIGATION } from "../../../../constants.js";
 import "./Header.scss";
@@ -24,7 +23,14 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const handleChange = (e) => {
+      if (e.matches) setIsSearchOpen(false);
+    };
+    desktop.addEventListener("change", handleChange);
+    return () => desktop.removeEventListener("change", handleChange);
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -41,16 +47,10 @@ export default function Header() {
             <img src="/itemsPhotos/Logo (2).png" alt="logo" />
           </Link>
         </div>
-
-        <button
-          type="button"
-          className="search-bar"
-          onClick={() => setIsSearchOpen(true)}
-        >
-          <CiSearch className="search-icon" size={20} />
-          <span className="search-bar__placeholder">Search</span>
-        </button>
-
+        <SearchModal
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+        />{" "}
         <nav className="nav-links">
           {NAVIGATION.map((item) => (
             <NavLink
@@ -63,7 +63,6 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-
         <div className="nav-icons">
           <div className="iconCircle iconCircle--search">
             <button
@@ -75,6 +74,7 @@ export default function Header() {
               <CiSearch size={24} />
             </button>
           </div>
+
           <div className="iconCircle">
             <Link to="/wishlist" className="icon-btn">
               <CiHeart size={24} />
@@ -92,14 +92,12 @@ export default function Header() {
               <CiUser size={24} />
             </Link>
           </div>
-
           <button className="menuBtn" onClick={toggleMenu}>
             <RxHamburgerMenu size={24} />
           </button>
         </div>
       </header>
       <MobileMenu closeMenu={closeMenu} isOpen={isOpen} />
-      {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
     </>
   );
 }

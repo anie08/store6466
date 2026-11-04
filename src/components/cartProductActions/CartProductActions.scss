@@ -5,11 +5,17 @@
   margin-left: auto;
   &--details {
     margin-left: 0;
-    flex: 1;
-    max-width: 260px;
+    width: calc((100% - 15px) / 2);
+    height: 56px;
 
     @media (max-width: 767px) {
-      max-width: none;
+      width: calc((100% - 10px) / 2);
+      height: 52px;
+    }
+
+    @media (max-width: 440px) {
+      width: 100%;
+      max-width: 300px;
     }
   }
 

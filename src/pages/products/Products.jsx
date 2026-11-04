@@ -41,15 +41,6 @@ const Products = () => {
   const [sortOpen, setSortOpen] = useState(false);
   const [page, setPage] = useState(1);
 
-  // const filteredProducts = initialProducts.filter((p) => {
-  //   const matchesCategory =
-  //     !selectedCategory || p.mainCategory === selectedCategory;
-  //   const matchesSearch = p.title
-  //     .toLowerCase()
-  //     .includes(searchTerm.toLowerCase());
-  //   return matchesCategory && matchesSearch;
-  // });
-
   const toggleFilter = (key) => {
     setOpenFilter((prev) =>
       prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],

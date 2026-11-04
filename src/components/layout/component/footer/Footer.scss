@@ -58,15 +58,7 @@
   }
 }
 
-.footer_logo-link {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
 
-  @media (max-width: 767px) {
-    justify-content: center;
-  }
-}
 
 .footer_logo {
   display: block;

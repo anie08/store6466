@@ -18,7 +18,6 @@ const PaymentStep = () => {
   const tax = 50;
   const shippingCost = shipping?.price ?? 0;
   const total = subtotal + tax + shippingCost;
-  const navigate = useNavigate();
   const [method, setMethod] = useState("Credit Card");
   const [sameAsBilling, setSameAsBilling] = useState(true);
   const [isPaid, setIsPaid] = useState(false);
@@ -117,53 +116,7 @@ const PaymentStep = () => {
           </div>
         </div>
       </div>
-      {/*<div className="payment-step__payment">*/}
-      {/*  <h2 className="payment-step__payment__h2">Payment</h2>*/}
-      {/*  <div className="payment-step__payment">*/}
-      {/*    <span className="payment-step__payment__credit">Credit Card</span>*/}
-      {/*    <span className="payment-step__payment__Pay-pal">PayPal</span>*/}
-      {/*    <span className="payment-step__payment__pay-pal-c">*/}
-      {/*      PayPal Credit*/}
-      {/*    </span>*/}
-      {/*  </div>*/}
-      {/*  <div className="payment-step__payment__img">*/}
-      {/*    <img src={Card} alt="Card" />*/}
-      {/*  </div>*/}
-      {/*  <input*/}
-      {/*    id="name"*/}
-      {/*    type="text"*/}
-      {/*    className="input__name"*/}
-      {/*    placeholder="Cardholder Name"*/}
-      {/*  />*/}
-      {/*  <input*/}
-      {/*    id="number"*/}
-      {/*    type="number"*/}
-      {/*    className="input__card-number"*/}
-      {/*    placeholder="Card Number"*/}
-      {/*  />*/}
-      {/*  <input*/}
-      {/*    id="date"*/}
-      {/*    type="date"*/}
-      {/*    className="input__card-date"*/}
-      {/*    placeholder="Card Date"*/}
-      {/*  />*/}
-      {/*  <input*/}
-      {/*    id="cvv"*/}
-      {/*    type="number"*/}
-      {/*    className="input__card-cvv"*/}
-      {/*    placeholder="CVV"*/}
-      {/*  />*/}
-      {/*  <div className="payment-step__payment__check-container">*/}
-      {/*    <form className="payment-step__payment__check">*/}
-      {/*      <input type="checkbox" className="input__check" />*/}
-      {/*      <label>*/}
-      {/*        <span className="payment-step__payment__h5">*/}
-      {/*          Same as billing address*/}
-      {/*        </span>*/}
-      {/*      </label>*/}
-      {/*    </form>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+
       <div className="payment-step__payment">
         <form className="payment-step__form" onSubmit={handlePay}>
           <h2 className="payment-step__title">Payment</h2>

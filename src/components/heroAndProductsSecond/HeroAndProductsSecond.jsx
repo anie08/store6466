@@ -8,7 +8,6 @@ import "./HeroAndProductsSecond.scss";
 const HeroAndProductsSecond = () => {
   return (
     <div className="HeroAndProductsSecond">
-      {/*<div className="">*/}
       <div className="products-container">
         <div className="left-column">
           <div className="playstation-card">
@@ -66,7 +65,6 @@ const HeroAndProductsSecond = () => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

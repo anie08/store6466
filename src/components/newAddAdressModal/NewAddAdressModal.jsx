@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiX } from "react-icons/fi";
 import "./NewAddAdressModal.scss";
-import { CiSearch } from "react-icons/ci";
 const emptyForm = { title: "", tag: "HOME", address: "", phone: "" };
 
 const NewAddAdressModal = ({ onClose, onSave }) => {
