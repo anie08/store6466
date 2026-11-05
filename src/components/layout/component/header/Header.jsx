@@ -41,60 +41,64 @@ export default function Header() {
 
   return (
     <>
-      <header className="header container">
-        <div className="logo">
-          <Link to="/" className="logo_link">
-            <img src="/itemsPhotos/Logo (2).png" alt="logo" />
-          </Link>
-        </div>
-        <SearchModal
-          isOpen={isSearchOpen}
-          onClose={() => setIsSearchOpen(false)}
-        />{" "}
-        <nav className="nav-links">
-          {NAVIGATION.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={classNames("nav-links_a", getActiveClass)}
-              onClick={closeMenu}
-            >
-              {item.name}
-            </NavLink>
-          ))}
-        </nav>
-        <div className="nav-icons">
-          <div className="iconCircle iconCircle--search">
-            <button
-              type="button"
-              className="search-btn-mobile icon-btn"
-              aria-label="Search"
-              onClick={() => setIsSearchOpen(true)}
-            >
-              <CiSearch size={24} />
+      <header className="header">
+        <div className="header_inner container">
+          <div className="logo">
+            <Link to="/" className="logo_link">
+              <img src="/itemsPhotos/logo.svg" alt="logo" />
+            </Link>
+          </div>
+          <SearchModal
+            isOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+          />{" "}
+          <nav className="nav-links">
+            {NAVIGATION.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={classNames("nav-links_a", getActiveClass)}
+                onClick={closeMenu}
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </nav>
+          <div className="nav-icons">
+            <div className="iconCircle iconCircle--search">
+              <label htmlFor="search-input" className="search-input">
+                <button
+                  type="button"
+                  className="search-btn-mobile icon-btn"
+                  aria-label="Search"
+                  onClick={() => setIsSearchOpen(true)}
+                >
+                  <CiSearch size={24} />
+                </button>
+              </label>
+            </div>
+
+            <div className="iconCircle">
+              <Link to="/wishlist" className="icon-btn">
+                <CiHeart size={24} />
+                {likedItems > 0 && <span className="badge">{likedItems}</span>}
+              </Link>
+            </div>
+            <div className="iconCircle">
+              <Link to="/cart" className="icon-btn">
+                <CiShoppingCart size={24} />
+                {totalItems > 0 && <span className="badge">{totalItems}</span>}
+              </Link>
+            </div>
+            <div className="iconCircle iconCircle--profile">
+              <Link to="/profile" className="icon-btn">
+                <CiUser size={24} />
+              </Link>
+            </div>
+            <button className="menuBtn" onClick={toggleMenu}>
+              <RxHamburgerMenu size={24} />
             </button>
           </div>
-
-          <div className="iconCircle">
-            <Link to="/wishlist" className="icon-btn">
-              <CiHeart size={24} />
-              {likedItems > 0 && <span className="badge">{likedItems}</span>}
-            </Link>
-          </div>
-          <div className="iconCircle">
-            <Link to="/cart" className="icon-btn">
-              <CiShoppingCart size={24} />
-              {totalItems > 0 && <span className="badge">{totalItems}</span>}
-            </Link>
-          </div>
-          <div className="iconCircle iconCircle--profile">
-            <Link to="/profile" className="icon-btn">
-              <CiUser size={24} />
-            </Link>
-          </div>
-          <button className="menuBtn" onClick={toggleMenu}>
-            <RxHamburgerMenu size={24} />
-          </button>
         </div>
       </header>
       <MobileMenu closeMenu={closeMenu} isOpen={isOpen} />

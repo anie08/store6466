@@ -91,3 +91,30 @@ $color-border: #e5e5e5;
   align-items: center;
   font-size: 14px;
 }
+
+// box around the button: the invisible date input lies exactly on top of it
+.date-picker {
+  position: relative;
+  display: inline-flex;
+}
+
+// the real calendar input: invisible, but it receives the tap,
+// so phones open their own date picker
+.date-picker-btn__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+
+  // Chrome: make the (invisible) calendar icon cover the whole input
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+  }
+}

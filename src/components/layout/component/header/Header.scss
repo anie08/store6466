@@ -1,14 +1,16 @@
 .header {
-  display: flex;
-  align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: white;
-  border-bottom: 1px solid #1a1a1a;
-  width: 100%;
   position: sticky;
   top: 0;
   z-index: 2;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.header_inner {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
   @media screen and (max-width: 1199px) {
     flex-wrap: wrap;
@@ -127,8 +129,11 @@
   position: relative;
   &--search{
     display: none;
+
     @media screen and (max-width: 767px) {
       display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

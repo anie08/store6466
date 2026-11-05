@@ -1,24 +1,20 @@
 import { Link } from "react-router-dom";
 import { FaTwitter, FaFacebookF, FaTiktok, FaInstagram } from "react-icons/fa6";
-import logo from "../../../../../public/itemsPhotos/Logo (3).png";
+import LogoIcon from "../../../../assets/logo.svg?react";
 import "./Footer.scss";
-
-const services = [
-  "Bonus program",
-  "Gift cards",
-  "Credit and payment",
-  "Service contracts",
-  "Non-cash account",
-  "Payment",
+const shopLinks = [
+  { name: "All Products", to: "/products" },
+  { name: "Summer Sale", to: "/products/iphone" },
+  { name: "iPhone 14 Pro Max", to: "/products/1" },
+  { name: "Wishlist", to: "/wishlist" },
+  { name: "Cart", to: "/cart" },
 ];
 
-const assistance = [
-  "Find an order",
-  "Terms of delivery",
-  "Exchange and return of goods",
-  "Guarantee",
-  "Frequently asked questions",
-  "Terms of use of the site",
+const assistanceLinks = [
+  { name: "Checkout", to: "/checkout" },
+  { name: "Shipping address", to: "/checkout/address" },
+  { name: "Shipping shipping", to: "/checkout/shipping" },
+  { name: "Shipping checkout", to: "/checkout/checkout" },
 ];
 
 const Footer = () => {
@@ -27,7 +23,7 @@ const Footer = () => {
       <div className="footer_inner container">
         <div className="footer_about">
           <div className="footer_about-top">
-            <img className="footer_logo" src={logo} alt="Cyber" />
+            <LogoIcon className="footer_logo" aria-label="Cyber" role="img" />
             <p className="footer_text">
               We are a residential interior design firm located in Portland. Our
               boutique-studio offers more than
@@ -53,10 +49,10 @@ const Footer = () => {
         <div className="footer_col footer_col-services">
           <h4 className="footer_title">Services</h4>
           <ul className="footer_list">
-            {services.map((item) => (
-              <li className="footer_item" key={item}>
-                <Link className="footer_link" to="/products">
-                  {item}
+            {shopLinks.map((item) => (
+              <li className="footer_item" key={item.name}>
+                <Link className="footer_link" to={item.to}>
+                  {item.name}
                 </Link>
               </li>
             ))}
@@ -66,10 +62,10 @@ const Footer = () => {
         <div className="footer_col footer_col-assistance">
           <h4 className="footer_title">Assistance to the buyer</h4>
           <ul className="footer_list">
-            {assistance.map((item) => (
-              <li className="footer_item" key={item}>
-                <Link className="footer_link" to="/products">
-                  {item}
+            {assistanceLinks.map((item) => (
+              <li className="footer_item" key={item.name}>
+                <Link className="footer_link" to={item.to}>
+                  {item.name}
                 </Link>
               </li>
             ))}

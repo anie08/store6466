@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { FiCalendar, FiChevronDown } from "react-icons/fi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import "./ShippingStep.scss";
 
@@ -26,17 +26,52 @@ const shippingData = [
   },
 ];
 
+// today as "YYYY-MM-DD" in the user's own timezone (for the calendar's min)
+const getToday = () => {
+  const now = new Date();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${now.getFullYear()}-${month}-${day}`;
+};
+
+// "2026-11-12" → "12 Nov 2026"
+const formatDate = (value) =>
+  new Date(`${value}T00:00`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
 const ShippingStep = () => {
   const handleSelect = (id) => {
     setSelectedId(id);
   };
   const { setCanGoNext, shipping, setShipping } = useOutletContext();
   const [selectedId, setSelectedId] = useState(shipping?.id ?? 1);
+  const [scheduledDate, setScheduledDate] = useState(
+    shipping?.scheduledDate ?? "",
+  );
+  const dateInputRef = useRef(null);
 
   useEffect(() => {
     setCanGoNext(true);
-    setShipping(shippingData.find((item) => item.id === selectedId));
-  }, [selectedId, setCanGoNext, setShipping]);
+    const chosen = shippingData.find((item) => item.id === selectedId);
+    setShipping(
+      chosen?.isSchedule && scheduledDate
+        ? { ...chosen, date: formatDate(scheduledDate), scheduledDate }
+        : chosen,
+    );
+  }, [selectedId, scheduledDate, setCanGoNext, setShipping]);
+
+  const openCalendar = (e, id) => {
+    e.stopPropagation(); // the card has its own onClick
+    handleSelect(id); // choosing a date also selects "Schedule"
+    try {
+      dateInputRef.current?.showPicker(); // desktop: open the calendar
+    } catch {
+      // phones open it by themselves when the date input is tapped
+    }
+  };
 
   return (
     <div className="shipping-step">
@@ -68,15 +103,35 @@ const ShippingStep = () => {
 
             <div className="shipping-card__date">
               {item.isSchedule ? (
-                <button type="button" className="date-picker-btn">
-                  <span className="date-picker-btn__icon">
-                    <FiCalendar />
-                  </span>
-                  <span>{item.date}</span>
-                  <span className="date-picker-btn__arrow">
-                    <FiChevronDown />
-                  </span>
-                </button>
+                <span className="date-picker">
+                  <button
+                    type="button"
+                    className="date-picker-btn"
+                    onClick={(e) => openCalendar(e, item.id)}
+                  >
+                    <span className="date-picker-btn__icon">
+                      <FiCalendar />
+                    </span>
+                    <span>
+                      {scheduledDate ? formatDate(scheduledDate) : item.date}
+                    </span>
+                    <span className="date-picker-btn__arrow">
+                      <FiChevronDown />
+                    </span>
+                  </button>
+
+                  <input
+                    ref={dateInputRef}
+                    type="date"
+                    className="date-picker-btn__input"
+                    min={getToday()}
+                    value={scheduledDate}
+                    onChange={(e) => setScheduledDate(e.target.value)}
+                    onClick={(e) => openCalendar(e, item.id)}
+                    aria-label="Delivery date"
+                    tabIndex={-1}
+                  />
+                </span>
               ) : (
                 <span>{item.date}</span>
               )}

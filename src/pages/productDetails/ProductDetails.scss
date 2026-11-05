@@ -438,7 +438,7 @@
 }
 
 .product-details-bottom {
-  padding: 70px 0;
+  padding: 80px 0;
   background: #fafafa;
 
   @media (max-width: 1200px) {
@@ -449,18 +449,19 @@
     padding: 30px 0;
   }
 }
-
+.product-details-bottom__bg-colo{
+  background: grey;
+}
 .product-details-card {
-  padding: 40px;
+  padding: 56px 40px;
   border-radius: 10px;
-  background: white;
-
+  background: #fff;
   @media (max-width: 1200px) {
-    padding: 30px;
+    padding: 40px 30px;
   }
 
   @media (max-width: 767px) {
-    padding: 20px;
+    padding:24px 16px;;
   }
 }
 
@@ -567,3 +568,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+

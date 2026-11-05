@@ -28,17 +28,21 @@ const SearchModal = ({ isOpen, onClose }) => {
     setShowResults(false);
     onClose();
   };
+  useEffect(() => {
+    if (isOpen) inputRef.current?.focus();
+  }, [isOpen]);
+
+  const isSearching = isOpen || (showResults && text !== "");
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isSearching) return;
 
-    inputRef.current?.focus();
     document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isSearching]);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -80,14 +84,14 @@ const SearchModal = ({ isOpen, onClose }) => {
           role="search"
           onSubmit={handleSubmit}
         >
-          <span className="search-modal__icon">
-            <CiSearch />
-          </span>
-
-          <div className="search-modal__field">
+          <label htmlFor="site-search" className="search-modal__field">
+            <span className="search-modal__icon">
+              <CiSearch />
+            </span>
             <input
               ref={inputRef}
               type="search"
+              id="site-search"
               placeholder="Search"
               aria-label="Search products"
               value={query}
@@ -97,7 +101,7 @@ const SearchModal = ({ isOpen, onClose }) => {
               }}
               onFocus={() => setShowResults(true)}
             />
-          </div>
+          </label>
 
           <button
             type="button"

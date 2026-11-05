@@ -118,7 +118,12 @@ const Products = () => {
             >
               <FaChevronLeft />
             </button>
-            <h2 className="mobile-filter-header_h2">Filters</h2>
+            <h2
+              className="mobile-filter-header_h2"
+              onClick={() => setMobileFiltersOpen(false)}
+            >
+              Filters
+            </h2>
           </div>
 
           <div className="filter-box price-filter">

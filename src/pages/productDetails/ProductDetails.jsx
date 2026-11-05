@@ -136,9 +136,11 @@ const ProductDetails = () => {
   ].filter(([, value]) => value != null && value !== "N/A");
 
   return (
-    <div className="product-details-wraper container">
-      <Breadcrumbs lastLabel={product.name} />
-      <div className="product-details ">
+    <div className="product-details-wraper ">
+      <div className="container">
+        <Breadcrumbs lastLabel={product.name} />
+      </div>
+      <div className="product-details container">
         <div className="product-details_image">
           <div className="product-details_side-photos">
             {images.map((image, index) => (
@@ -310,7 +312,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="product-details-bottom">
-        <div className="container">
+        <div className=" container  ">
           <div className="product-details-card">
             <h2 className="product-details-card_h2">Details</h2>
 
